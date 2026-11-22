@@ -4,6 +4,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Release](https://img.shields.io/github/v/release/tanle-mtr/BSODFixTool?label=release)](https://github.com/tanle-mtr/BSODFixTool/releases)
+[![CI](https://github.com/tanle-mtr/BSODFixTool/actions/workflows/build.yml/badge.svg)](https://github.com/tanle-mtr/BSODFixTool/actions/workflows/build.yml)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
 
 ## 快速开始
