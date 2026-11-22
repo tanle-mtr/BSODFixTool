@@ -1,0 +1,99 @@
+{
+  "protocolVersion": 1,
+  "id": "bsod-fix-tool",
+  "title": "蓝屏代码查询与修复工具",
+  "characterId": "fantasy-mouse-canonical",
+  "identityAnchors": [
+    "compact-grey-round-head",
+    "tiny-horizontal-ears",
+    "narrowed-vacant-eyes",
+    "human-like-toothy-grin",
+    "compact-white-bean-body",
+    "default-clasped-hands-v-or-u",
+    "earnest-absurd-dreamer"
+  ],
+  "persona": "offline-repair-dreamer",
+  "theme": "diagnostic-console",
+  "surfaces": [
+    "windows-desktop",
+    "winpe-desktop"
+  ],
+  "participation": "standard",
+  "states": {
+    "idle-query": {
+      "fantasyRole": "值班诊断员",
+      "expression": "平静观察",
+      "pose": "站立，双手胸前交叠",
+      "handMode": "default-clasped",
+      "props": [],
+      "bubble": "hide",
+      "copy": "输入蓝屏代码或名称，先查清原因再动手。"
+    },
+    "code-selected": {
+      "fantasyRole": "值班诊断员",
+      "expression": "若有所思",
+      "pose": "站立，双手胸前交叠",
+      "handMode": "default-clasped",
+      "props": [],
+      "bubble": "hide",
+      "copy": "已定位该蓝屏代码，先读原因与步骤。"
+    },
+    "repair-ready": {
+      "fantasyRole": "检修工程师",
+      "expression": "专注",
+      "pose": "戴安全帽、双手握住检修杆",
+      "handMode": "action",
+      "props": ["安全帽", "检修杆", "齿轮箱"],
+      "bubble": "hide",
+      "copy": "确认系统盘与备份目录后再执行。"
+    },
+    "repair-running": {
+      "fantasyRole": "检修工程师",
+      "expression": "专注用力",
+      "pose": "戴安全帽、双手握住检修杆",
+      "handMode": "action",
+      "props": ["安全帽", "检修杆", "齿轮箱"],
+      "bubble": "show",
+      "copy": "正在执行修复，右侧日志是唯一权威进度。"
+    },
+    "repair-success": {
+      "fantasyRole": "检修工程师",
+      "expression": "得意但克制",
+      "pose": "戴安全帽、双手握住检修杆",
+      "handMode": "action",
+      "props": ["安全帽", "检修杆", "齿轮箱"],
+      "bubble": "show",
+      "copy": "修复完成，请重启观察。"
+    },
+    "repair-blocked": {
+      "fantasyRole": "值班诊断员",
+      "expression": "认真提醒",
+      "pose": "站立，双手胸前交叠",
+      "handMode": "default-clasped",
+      "props": [],
+      "bubble": "hide",
+      "copy": "环境不满足要求，已列出具体阻塞原因与解除办法。"
+    },
+    "repair-failed": {
+      "fantasyRole": "值班诊断员",
+      "expression": "认真提醒",
+      "pose": "站立，双手胸前交叠",
+      "handMode": "default-clasped",
+      "props": [],
+      "bubble": "hide",
+      "copy": "有步骤失败，请按日志中的返回码逐条排查。"
+    }
+  },
+  "rights": {
+    "publicExport": false,
+    "assetIds": [
+      "canonical-protagonist",
+      "processing-action-hands"
+    ]
+  },
+  "qa": {
+    "visual": true,
+    "accessibility": true,
+    "editable": true
+  }
+}

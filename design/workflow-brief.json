@@ -1,0 +1,155 @@
+{
+  "protocolVersion": 1,
+  "id": "bsod-fix-tool",
+  "purpose": "让机器已经蓝屏甚至进不了系统的用户与维修工程师，在完全离线、无需安装任何依赖的 Windows 或 WinPE 环境下，查清蓝屏代码的真实含义，并安全地一键执行文件系统与引导修复。",
+  "users": [
+    "field-repair-technician",
+    "windows-power-user",
+    "pe-first-time-operator"
+  ],
+  "entities": [
+    "bsod-code",
+    "code-cause",
+    "code-step",
+    "code-faq",
+    "repair-plan",
+    "repair-step",
+    "system-volume",
+    "environment-profile",
+    "command-log",
+    "backup-archive"
+  ],
+  "screens": [
+    {
+      "id": "code-browser",
+      "purpose": "输入蓝屏代码或名称，从内置离线库中定位条目，呈现分类与严重度。"
+    },
+    {
+      "id": "code-detail",
+      "purpose": "展示所选蓝屏代码的概要、原因、排查步骤、参数含义与常见问题。"
+    },
+    {
+      "id": "repair-bench",
+      "purpose": "确认系统盘、固件模式与备份目录，勾选修复步骤，执行或演练一键修复。"
+    },
+    {
+      "id": "run-log",
+      "purpose": "实时呈现每条修复命令的输出、返回码与最终报告，并可保存为文本。"
+    },
+    {
+      "id": "about",
+      "purpose": "说明数据来源、离线能力边界、PE 使用方式与风险免责声明。"
+    }
+  ],
+  "actions": [
+    {
+      "id": "search-code",
+      "label": "搜索蓝屏代码",
+      "kind": "primary",
+      "from": "empty-query",
+      "to": "code-selected"
+    },
+    {
+      "id": "select-code",
+      "label": "选择蓝屏条目",
+      "kind": "navigation",
+      "from": "code-selected",
+      "to": "code-selected"
+    },
+    {
+      "id": "open-repair-bench",
+      "label": "打开修复台",
+      "kind": "primary",
+      "from": "code-selected",
+      "to": "repair-ready"
+    },
+    {
+      "id": "run-one-click-repair",
+      "label": "一键修复蓝屏与引导",
+      "kind": "destructive",
+      "from": "repair-ready",
+      "to": "repair-running"
+    },
+    {
+      "id": "confirm-and-run",
+      "label": "确认后执行勾选步骤",
+      "kind": "destructive",
+      "from": "repair-ready",
+      "to": "repair-running"
+    },
+    {
+      "id": "cancel-run",
+      "label": "取消执行并回到准备状态",
+      "kind": "recovery",
+      "from": "repair-running",
+      "to": "repair-ready"
+    },
+    {
+      "id": "retry-repair",
+      "label": "重试失败的步骤",
+      "kind": "recovery",
+      "from": "repair-failed",
+      "to": "repair-ready"
+    },
+    {
+      "id": "toggle-dry-run",
+      "label": "演练模式预览将要执行的命令",
+      "kind": "utility",
+      "from": "repair-ready",
+      "to": "repair-ready"
+    },
+    {
+      "id": "save-log",
+      "label": "保存执行日志与报告",
+      "kind": "utility",
+      "from": "repair-running",
+      "to": "repair-running"
+    },
+    {
+      "id": "rescan-environment",
+      "label": "重新扫描磁盘与固件环境",
+      "kind": "utility",
+      "from": "repair-ready",
+      "to": "repair-ready"
+    },
+    {
+      "id": "open-about",
+      "label": "打开关于与免责声明",
+      "kind": "navigation",
+      "from": "empty-query",
+      "to": "empty-query"
+    }
+  ],
+  "states": [
+    "empty-query",
+    "code-selected",
+    "repair-ready",
+    "repair-running",
+    "repair-blocked",
+    "repair-success",
+    "repair-failed"
+  ],
+  "primaryJourney": [
+    "code-browser",
+    "search-code",
+    "code-detail",
+    "open-repair-bench",
+    "repair-bench",
+    "run-one-click-repair",
+    "run-log",
+    "save-log"
+  ],
+  "surfaces": [
+    "windows-desktop",
+    "winpe-desktop"
+  ],
+  "constraints": [
+    "必须完全离线运行：所有蓝屏数据内置于可执行文件，运行期不发起任何网络请求。",
+    "必须零依赖：单文件可执行，运行机不需要安装 Python、.NET 或任何第三方运行库。",
+    "必须能在 64 位 WinPE / WinRE 中运行：只使用 Windows 自带命令，并处理命令缺失的降级。",
+    "WinPE 可能缺少中文字体，界面必须探测可用字族并给出明确提示而不是乱码。",
+    "修复动作会写入引导扇区与文件系统，属于破坏性操作，必须二次确认、自动备份并可回退。",
+    "硬件类故障不可用软件命令修复，界面必须如实说明而不是给出虚假的一键修复承诺。",
+    "界面必须在 1120x680 以上的桌面分辨率下完整可用，修复台内容可滚动，不得裁切关键操作。"
+  ]
+}

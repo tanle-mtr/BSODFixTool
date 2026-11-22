@@ -1,0 +1,4766 @@
+{
+  "source": "https://www.3z9w.com",
+  "source_pages": [
+    "https://www.3z9w.com/bsod-codes",
+    "https://www.3z9w.com/bsod",
+    "https://www.3z9w.com/bsod-sitemap.xml"
+  ],
+  "scraped_at": "2026-11-22T21:54:46+08:00",
+  "count": 73,
+  "categories": [
+    {
+      "name": "内存与分页"
+    },
+    {
+      "name": "存储与文件系统"
+    },
+    {
+      "name": "异常与卡死"
+    },
+    {
+      "name": "显卡与显示"
+    },
+    {
+      "name": "电源 · USB · 网络"
+    },
+    {
+      "name": "硬件与 CPU"
+    },
+    {
+      "name": "系统与内核"
+    },
+    {
+      "name": "驱动与 IRQL"
+    }
+  ],
+  "entries": [
+    {
+      "code": "0x0000000A",
+      "name": "IRQL_NOT_LESS_OR_EQUAL",
+      "category": "驱动与 IRQL",
+      "source_url": "https://www.3z9w.com/bsod/0x0000000a/",
+      "keywords": [
+        "0x0000000A",
+        "IRQL_NOT_LESS_OR_EQUAL"
+      ],
+      "severity": "中高 · 多为驱动,少数内存",
+      "title": "0x0000000A 蓝屏怎么解决?IRQL 错误的排查顺序",
+      "summary": "有代码在过高的 IRQL 上访问了不该访问的内存。优先怀疑最近更新的驱动、杀毒/虚拟化软件,其次才是内存条和超频。",
+      "quick_tips": [
+        "记下蓝屏第二行的 .sys 文件名",
+        "回滚最近装的驱动或杀软",
+        "关掉 XMP/超频再观察"
+      ],
+      "params": [
+        {
+          "name": "Param 1",
+          "desc": "被引用的内存地址"
+        },
+        {
+          "name": "Param 2",
+          "desc": "发生时的 IRQL 级别"
+        },
+        {
+          "name": "Param 3",
+          "desc": "0=读,1=写,8=执行"
+        },
+        {
+          "name": "Param 4",
+          "desc": "引用该内存的指令地址"
+        }
+      ],
+      "causes": [
+        {
+          "title": "驱动 bug",
+          "desc": "网卡、显卡、存储、外设驱动在错误 IRQL 访问分页内存。",
+          "level": "高"
+        },
+        {
+          "title": "杀软/虚拟化驱动",
+          "desc": "安全软件、沙盘、模拟器的内核驱动。",
+          "level": "高"
+        },
+        {
+          "title": "内存不稳或超频",
+          "desc": "XMP、手动超频、内存条接触不良。",
+          "level": "中"
+        },
+        {
+          "title": "系统文件损坏",
+          "desc": "较少见,通常伴随其他蓝屏码。",
+          "level": "低"
+        }
+      ],
+      "steps": [
+        {
+          "title": "先看第二行",
+          "desc": "蓝屏界面会给出出错的 .sys 文件名,这是最直接的线索。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近 7 天装的驱动、系统更新、杀软、外设软件,逐个卸载/回滚。"
+        },
+        {
+          "title": "安全模式验证",
+          "desc": "能进安全模式且不蓝 → 基本锁定驱动或软件。"
+        },
+        {
+          "title": "测内存",
+          "desc": "Windows 内存诊断先跑,条件允许用 MemTest86 跑满 4 轮。"
+        },
+        {
+          "title": "关超频再试",
+          "desc": "BIOS 恢复默认,关闭 XMP/EXPO,更新芯片组与网卡驱动。"
+        }
+      ],
+      "warnings": [
+        "换过内存、关超频后仍然同码",
+        "每天固定场景必蓝(开机/游戏/待机)",
+        "不会进安全模式,也不敢动 BIOS"
+      ],
+      "faqs": [
+        {
+          "q": "0x0000000A 和 0x000000D1 有什么区别?",
+          "a": "两者很像。0xD1 更明确是驱动在 DISPATCH_LEVEL 访问分页内存;0xA 范围更宽,也可能是硬件。"
+        },
+        {
+          "q": "超频会导致 0xA 吗?",
+          "a": "会。内存/CPU 不稳定常以 0xA、0x1A、0x50 的形式出现,先恢复默认频率。"
+        },
+        {
+          "q": "一定要重装系统吗?",
+          "a": "不需要。先定位驱动,重装是最后手段。"
+        }
+      ],
+      "related": [
+        {
+          "code": "0x000000C1",
+          "name": "SPECIAL_POOL_DETECTED_MEMORY_CORRUPTION"
+        },
+        {
+          "code": "0x000000C4",
+          "name": "DRIVER_VERIFIER_DETECTED_VIOLATION"
+        },
+        {
+          "code": "0x000000C5",
+          "name": "DRIVER_CORRUPTED_EXPOOL"
+        },
+        {
+          "code": "0x000000C6",
+          "name": "DRIVER_CAUGHT_MODIFYING_FREED_POOL"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x0000000a/"
+    },
+    {
+      "code": "0x00000019",
+      "name": "BAD_POOL_HEADER",
+      "category": "内存与分页",
+      "source_url": "https://www.3z9w.com/bsod/0x00000019/",
+      "keywords": [
+        "0x00000019",
+        "BAD_POOL_HEADER"
+      ],
+      "severity": "",
+      "title": "0x00000019 蓝屏代码：BAD_POOL_HEADER",
+      "summary": "内存池头被踩坏。建议：内存 + 驱动一起查",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x0000001A",
+          "name": "MEMORY_MANAGEMENT"
+        },
+        {
+          "code": "0x0000004E",
+          "name": "PFN_LIST_CORRUPT"
+        },
+        {
+          "code": "0x00000050",
+          "name": "PAGE_FAULT_IN_NONPAGED_AREA"
+        },
+        {
+          "code": "0x000000BE",
+          "name": "ATTEMPTED_WRITE_TO_READONLY_MEMORY"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x00000019/"
+    },
+    {
+      "code": "0x0000001A",
+      "name": "MEMORY_MANAGEMENT",
+      "category": "内存与分页",
+      "source_url": "https://www.3z9w.com/bsod/0x0000001a/",
+      "keywords": [
+        "0x0000001A",
+        "MEMORY_MANAGEMENT"
+      ],
+      "severity": "中高 · 内存问题居多",
+      "title": "0x0000001A 蓝屏:内存管理错误的排查方法",
+      "summary": "内存管理器的数据被写坏了。最常见是内存条本身不稳或超频,其次是驱动越界写内存,磁盘问题排第三。",
+      "quick_tips": [
+        "关 XMP/超频",
+        "MemTest86 跑满 4 轮",
+        "单条内存逐一测试"
+      ],
+      "params": [
+        {
+          "name": "Param 1",
+          "desc": "错误类型/状态码"
+        },
+        {
+          "name": "Param 2",
+          "desc": "相关内存地址"
+        },
+        {
+          "name": "Param 3",
+          "desc": "相关内存地址"
+        },
+        {
+          "name": "Param 4",
+          "desc": "相关内存地址"
+        }
+      ],
+      "causes": [
+        {
+          "title": "内存条故障/兼容性",
+          "desc": "混插、单条损坏、插槽接触不良。",
+          "level": "高"
+        },
+        {
+          "title": "超频不稳",
+          "desc": "XMP/EXPO、时序过紧、电压不足。",
+          "level": "高"
+        },
+        {
+          "title": "驱动越界",
+          "desc": "驱动写坏了不该写的内存。",
+          "level": "中"
+        },
+        {
+          "title": "磁盘/分页文件",
+          "desc": "读写出错导致内存页损坏。",
+          "level": "中"
+        }
+      ],
+      "steps": [
+        {
+          "title": "先关超频",
+          "desc": "BIOS 默认,关 XMP/EXPO,观察是否复发。"
+        },
+        {
+          "title": "测内存",
+          "desc": "MemTest86 至少 4 轮;有错就单条测试。"
+        },
+        {
+          "title": "单条单槽",
+          "desc": "逐条、逐槽排除,笔记本注意双通道。"
+        },
+        {
+          "title": "查驱动",
+          "desc": "最近更新过什么,先回滚;蓝屏第二行有文件名更好。"
+        },
+        {
+          "title": "查磁盘",
+          "desc": "chkdsk + SMART,排除分页文件损坏。"
+        }
+      ],
+      "warnings": [
+        "单条内存测出错误",
+        "换内存后仍 1A",
+        "伴随数据损坏/掉盘"
+      ],
+      "faqs": [
+        {
+          "q": "1A 和 50 有什么区别?",
+          "a": "都可能是内存,1A 更偏内存管理数据本身,50 更偏访问不存在的页。"
+        },
+        {
+          "q": "XMP 关了还蓝怎么办?",
+          "a": "单条测试内存;仍报错就换条,别继续在系统里折腾。"
+        },
+        {
+          "q": "需要重装吗?",
+          "a": "多数不需要,除非伴随系统文件损坏。"
+        }
+      ],
+      "related": [
+        {
+          "code": "0x00000019",
+          "name": "BAD_POOL_HEADER"
+        },
+        {
+          "code": "0x0000004E",
+          "name": "PFN_LIST_CORRUPT"
+        },
+        {
+          "code": "0x00000050",
+          "name": "PAGE_FAULT_IN_NONPAGED_AREA"
+        },
+        {
+          "code": "0x000000BE",
+          "name": "ATTEMPTED_WRITE_TO_READONLY_MEMORY"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x0000001a/"
+    },
+    {
+      "code": "0x0000001E",
+      "name": "KMODE_EXCEPTION_NOT_HANDLED",
+      "category": "异常与卡死",
+      "source_url": "https://www.3z9w.com/bsod/0x0000001e/",
+      "keywords": [
+        "0x0000001E",
+        "KMODE_EXCEPTION_NOT_HANDLED"
+      ],
+      "severity": "",
+      "title": "0x0000001E 蓝屏代码：KMODE_EXCEPTION_NOT_HANDLED",
+      "summary": "内核模式异常未被处理。建议：多为驱动,也查磁盘空间",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x0000003B",
+          "name": "SYSTEM_SERVICE_EXCEPTION"
+        },
+        {
+          "code": "0x0000007E",
+          "name": "SYSTEM_THREAD_EXCEPTION_NOT_HANDLED"
+        },
+        {
+          "code": "0x000000EA",
+          "name": "THREAD_STUCK_IN_DEVICE_DRIVER"
+        },
+        {
+          "code": "0x000000F7",
+          "name": "DRIVER_OVERRAN_STACK_BUFFER"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x0000001e/"
+    },
+    {
+      "code": "0x00000020",
+      "name": "KERNEL_APC_PENDING_DURING_EXIT",
+      "category": "系统与内核",
+      "source_url": "https://www.3z9w.com/bsod/0x00000020/",
+      "keywords": [
+        "0x00000020",
+        "KERNEL_APC_PENDING_DURING_EXIT"
+      ],
+      "severity": "",
+      "title": "0x00000020 蓝屏代码：KERNEL_APC_PENDING_DURING_EXIT",
+      "summary": "线程退出时仍有 APC 挂起。建议：查驱动回调",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x0000002B",
+          "name": "PANIC_STACK_SWITCH"
+        },
+        {
+          "code": "0x0000002E",
+          "name": "DATA_BUS_ERROR"
+        },
+        {
+          "code": "0x00000051",
+          "name": "REGISTRY_ERROR"
+        },
+        {
+          "code": "0x0000005C",
+          "name": "HAL_INITIALIZATION_FAILED"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x00000020/"
+    },
+    {
+      "code": "0x00000023",
+      "name": "FAT_FILE_SYSTEM",
+      "category": "存储与文件系统",
+      "source_url": "https://www.3z9w.com/bsod/0x00000023/",
+      "keywords": [
+        "0x00000023",
+        "FAT_FILE_SYSTEM"
+      ],
+      "severity": "",
+      "title": "0x00000023 蓝屏代码：FAT_FILE_SYSTEM",
+      "summary": "FAT 文件系统损坏。建议：查 U 盘 / 存储驱动",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x00000024",
+          "name": "NTFS_FILE_SYSTEM"
+        },
+        {
+          "code": "0x0000007A",
+          "name": "KERNEL_DATA_INPAGE_ERROR"
+        },
+        {
+          "code": "0x0000007B",
+          "name": "INACCESSIBLE_BOOT_DEVICE"
+        },
+        {
+          "code": "0x000000ED",
+          "name": "UNMOUNTABLE_BOOT_VOLUME"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x00000023/"
+    },
+    {
+      "code": "0x00000024",
+      "name": "NTFS_FILE_SYSTEM",
+      "category": "存储与文件系统",
+      "source_url": "https://www.3z9w.com/bsod/0x00000024/",
+      "keywords": [
+        "0x00000024",
+        "NTFS_FILE_SYSTEM"
+      ],
+      "severity": "",
+      "title": "0x00000024 蓝屏代码：NTFS_FILE_SYSTEM",
+      "summary": "NTFS 文件系统损坏。建议：chkdsk / 硬盘",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x00000023",
+          "name": "FAT_FILE_SYSTEM"
+        },
+        {
+          "code": "0x0000007A",
+          "name": "KERNEL_DATA_INPAGE_ERROR"
+        },
+        {
+          "code": "0x0000007B",
+          "name": "INACCESSIBLE_BOOT_DEVICE"
+        },
+        {
+          "code": "0x000000ED",
+          "name": "UNMOUNTABLE_BOOT_VOLUME"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x00000024/"
+    },
+    {
+      "code": "0x0000002B",
+      "name": "PANIC_STACK_SWITCH",
+      "category": "系统与内核",
+      "source_url": "https://www.3z9w.com/bsod/0x0000002b/",
+      "keywords": [
+        "0x0000002B",
+        "PANIC_STACK_SWITCH"
+      ],
+      "severity": "",
+      "title": "0x0000002B 蓝屏代码：PANIC_STACK_SWITCH",
+      "summary": "内核栈耗尽触发紧急切换。建议：驱动递归 / 深调用",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x00000020",
+          "name": "KERNEL_APC_PENDING_DURING_EXIT"
+        },
+        {
+          "code": "0x0000002E",
+          "name": "DATA_BUS_ERROR"
+        },
+        {
+          "code": "0x00000051",
+          "name": "REGISTRY_ERROR"
+        },
+        {
+          "code": "0x0000005C",
+          "name": "HAL_INITIALIZATION_FAILED"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x0000002b/"
+    },
+    {
+      "code": "0x0000002E",
+      "name": "DATA_BUS_ERROR",
+      "category": "系统与内核",
+      "source_url": "https://www.3z9w.com/bsod/0x0000002e/",
+      "keywords": [
+        "0x0000002E",
+        "DATA_BUS_ERROR"
+      ],
+      "severity": "",
+      "title": "0x0000002E 蓝屏代码：DATA_BUS_ERROR",
+      "summary": "内存或总线奇偶校验错。建议：内存条 / 主板",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x00000020",
+          "name": "KERNEL_APC_PENDING_DURING_EXIT"
+        },
+        {
+          "code": "0x0000002B",
+          "name": "PANIC_STACK_SWITCH"
+        },
+        {
+          "code": "0x00000051",
+          "name": "REGISTRY_ERROR"
+        },
+        {
+          "code": "0x0000005C",
+          "name": "HAL_INITIALIZATION_FAILED"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x0000002e/"
+    },
+    {
+      "code": "0x0000003B",
+      "name": "SYSTEM_SERVICE_EXCEPTION",
+      "category": "异常与卡死",
+      "source_url": "https://www.3z9w.com/bsod/0x0000003b/",
+      "keywords": [
+        "0x0000003B",
+        "SYSTEM_SERVICE_EXCEPTION"
+      ],
+      "severity": "中高 · 驱动/系统文件",
+      "title": "0x0000003B 蓝屏:系统服务异常的定位与修复",
+      "summary": "系统服务例程执行时崩溃,常见于显卡驱动、杀软、系统文件损坏。蓝屏第二行的文件名往往就是答案。",
+      "quick_tips": [
+        "看第二行的 .sys",
+        "DDU 重装显卡驱动",
+        "卸载杀软/优化软件"
+      ],
+      "params": [
+        {
+          "name": "Param 1",
+          "desc": "异常代码(如 0xC0000005)"
+        },
+        {
+          "name": "Param 2",
+          "desc": "出错指令地址"
+        },
+        {
+          "name": "Param 3",
+          "desc": "异常记录地址"
+        },
+        {
+          "name": "Param 4",
+          "desc": "上下文记录地址"
+        }
+      ],
+      "causes": [
+        {
+          "title": "显卡驱动",
+          "desc": "更新后、游戏/视频场景高发。",
+          "level": "高"
+        },
+        {
+          "title": "杀软/系统优化工具",
+          "desc": "内核驱动冲突。",
+          "level": "中"
+        },
+        {
+          "title": "系统文件损坏",
+          "desc": "更新失败或磁盘错误。",
+          "level": "中"
+        },
+        {
+          "title": "内存不稳",
+          "desc": "少数,通常伴随其他码。",
+          "level": "低"
+        }
+      ],
+      "steps": [
+        {
+          "title": "记文件名",
+          "desc": "第二行 .sys 或 dump 的 IMAGE_NAME。"
+        },
+        {
+          "title": "显卡驱动",
+          "desc": "安全模式下 DDU 清除,再装官网对应版本。"
+        },
+        {
+          "title": "卸载冲突软件",
+          "desc": "杀软、优化大师、模拟器、外设驱动。"
+        },
+        {
+          "title": "修系统文件",
+          "desc": "sfc /scannow + DISM。"
+        },
+        {
+          "title": "内存与磁盘",
+          "desc": "MemTest 4 轮、chkdsk、SMART。"
+        }
+      ],
+      "warnings": [
+        "换过显卡驱动仍 3B",
+        "每次都在同一游戏/软件",
+        "伴随花屏或死机"
+      ],
+      "faqs": [
+        {
+          "q": "3B 一定是显卡吗?",
+          "a": "不是,但显卡驱动是最高频的一类,尤其游戏/视频场景。"
+        },
+        {
+          "q": "DDU 是什么?",
+          "a": "Display Driver Uninstaller,在安全模式彻底清除显卡驱动残留。"
+        },
+        {
+          "q": "需要重装系统吗?",
+          "a": "先按上面排查,重装是最后一步。"
+        }
+      ],
+      "related": [
+        {
+          "code": "0x0000001E",
+          "name": "KMODE_EXCEPTION_NOT_HANDLED"
+        },
+        {
+          "code": "0x0000007E",
+          "name": "SYSTEM_THREAD_EXCEPTION_NOT_HANDLED"
+        },
+        {
+          "code": "0x000000EA",
+          "name": "THREAD_STUCK_IN_DEVICE_DRIVER"
+        },
+        {
+          "code": "0x000000F7",
+          "name": "DRIVER_OVERRAN_STACK_BUFFER"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x0000003b/"
+    },
+    {
+      "code": "0x0000004C",
+      "name": "FATAL_UNHANDLED_HARD_ERROR",
+      "category": "硬件与 CPU",
+      "source_url": "https://www.3z9w.com/bsod/0x0000004c/",
+      "keywords": [
+        "0x0000004C",
+        "FATAL_UNHANDLED_HARD_ERROR"
+      ],
+      "severity": "",
+      "title": "0x0000004C 蓝屏代码：FATAL_UNHANDLED_HARD_ERROR",
+      "summary": "硬件错误没有被处理。建议：内存 / 主板 / 插槽",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x0000009C",
+          "name": "MACHINE_CHECK_EXCEPTION"
+        },
+        {
+          "code": "0x00000101",
+          "name": "CLOCK_WATCHDOG_TIMEOUT"
+        },
+        {
+          "code": "0x00000122",
+          "name": "WHEA_INTERNAL_ERROR"
+        },
+        {
+          "code": "0x00000124",
+          "name": "WHEA_UNCORRECTABLE_ERROR"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x0000004c/"
+    },
+    {
+      "code": "0x0000004E",
+      "name": "PFN_LIST_CORRUPT",
+      "category": "内存与分页",
+      "source_url": "https://www.3z9w.com/bsod/0x0000004e/",
+      "keywords": [
+        "0x0000004E",
+        "PFN_LIST_CORRUPT"
+      ],
+      "severity": "",
+      "title": "0x0000004E 蓝屏代码：PFN_LIST_CORRUPT",
+      "summary": "页帧号列表被写坏。建议：优先换内存条测试",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x00000019",
+          "name": "BAD_POOL_HEADER"
+        },
+        {
+          "code": "0x0000001A",
+          "name": "MEMORY_MANAGEMENT"
+        },
+        {
+          "code": "0x00000050",
+          "name": "PAGE_FAULT_IN_NONPAGED_AREA"
+        },
+        {
+          "code": "0x000000BE",
+          "name": "ATTEMPTED_WRITE_TO_READONLY_MEMORY"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x0000004e/"
+    },
+    {
+      "code": "0x00000050",
+      "name": "PAGE_FAULT_IN_NONPAGED_AREA",
+      "category": "内存与分页",
+      "source_url": "https://www.3z9w.com/bsod/0x00000050/",
+      "keywords": [
+        "0x00000050",
+        "PAGE_FAULT_IN_NONPAGED_AREA"
+      ],
+      "severity": "中高 · 内存/驱动各半",
+      "title": "0x00000050 蓝屏:内存还是驱动?先做这 5 步",
+      "summary": "系统访问了一段本应常驻内存、却并不存在的数据。内存条不稳和驱动越界是两个大头,磁盘/文件系统损坏排第三。",
+      "quick_tips": [
+        "先跑内存诊断",
+        "关 XMP、单条内存测试",
+        "卸载最近更新/驱动"
+      ],
+      "params": [
+        {
+          "name": "Param 1",
+          "desc": "被引用的内存地址"
+        },
+        {
+          "name": "Param 2",
+          "desc": "0=读,1=写"
+        },
+        {
+          "name": "Param 3",
+          "desc": "引用该地址的指令地址"
+        },
+        {
+          "name": "Param 4",
+          "desc": "保留"
+        }
+      ],
+      "causes": [
+        {
+          "title": "内存条故障/接触不良",
+          "desc": "金手指氧化、插槽灰尘、混插不同规格。",
+          "level": "高"
+        },
+        {
+          "title": "驱动越界访问",
+          "desc": "驱动读了已释放或越界的内存。",
+          "level": "高"
+        },
+        {
+          "title": "文件系统/磁盘损坏",
+          "desc": "分页文件或系统文件读不出来。",
+          "level": "中"
+        },
+        {
+          "title": "超频不稳",
+          "desc": "XMP/EXPO 或手动超频。",
+          "level": "中"
+        }
+      ],
+      "steps": [
+        {
+          "title": "内存诊断",
+          "desc": "先跑 Windows 内存诊断;要更准用 MemTest86,至少 4 轮。"
+        },
+        {
+          "title": "单条单槽",
+          "desc": "只留一条内存、换插槽,逐一排除;笔记本注意双通道配对。"
+        },
+        {
+          "title": "关超频",
+          "desc": "BIOS 恢复默认,关闭 XMP/EXPO,再观察 2–3 天。"
+        },
+        {
+          "title": "查磁盘",
+          "desc": "chkdsk C: /f /r ,看 SMART 的 05/C5 两项。"
+        },
+        {
+          "title": "回滚软件",
+          "desc": "最近装的驱动、杀软、虚拟化软件先卸载。"
+        }
+      ],
+      "warnings": [
+        "MemTest 报错(哪怕一条)",
+        "换内存后仍 0x50",
+        "伴随文件损坏、掉盘"
+      ],
+      "faqs": [
+        {
+          "q": "0x50 一定是内存坏了吗?",
+          "a": "不一定,但内存是第一位。先测内存,再查驱动。"
+        },
+        {
+          "q": "MemTest 跑多久?",
+          "a": "至少 4 轮;有报错就不用继续,直接换条测试。"
+        },
+        {
+          "q": "笔记本内存能自己换吗?",
+          "a": "大部分可以,注意保修和卡扣,不确定就找店。"
+        }
+      ],
+      "related": [
+        {
+          "code": "0x00000019",
+          "name": "BAD_POOL_HEADER"
+        },
+        {
+          "code": "0x0000001A",
+          "name": "MEMORY_MANAGEMENT"
+        },
+        {
+          "code": "0x0000004E",
+          "name": "PFN_LIST_CORRUPT"
+        },
+        {
+          "code": "0x000000BE",
+          "name": "ATTEMPTED_WRITE_TO_READONLY_MEMORY"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x00000050/"
+    },
+    {
+      "code": "0x00000051",
+      "name": "REGISTRY_ERROR",
+      "category": "系统与内核",
+      "source_url": "https://www.3z9w.com/bsod/0x00000051/",
+      "keywords": [
+        "0x00000051",
+        "REGISTRY_ERROR"
+      ],
+      "severity": "",
+      "title": "0x00000051 蓝屏代码：REGISTRY_ERROR",
+      "summary": "注册表读写失败。建议：硬盘健康 + 内存",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x00000020",
+          "name": "KERNEL_APC_PENDING_DURING_EXIT"
+        },
+        {
+          "code": "0x0000002B",
+          "name": "PANIC_STACK_SWITCH"
+        },
+        {
+          "code": "0x0000002E",
+          "name": "DATA_BUS_ERROR"
+        },
+        {
+          "code": "0x0000005C",
+          "name": "HAL_INITIALIZATION_FAILED"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x00000051/"
+    },
+    {
+      "code": "0x0000005C",
+      "name": "HAL_INITIALIZATION_FAILED",
+      "category": "系统与内核",
+      "source_url": "https://www.3z9w.com/bsod/0x0000005c/",
+      "keywords": [
+        "0x0000005C",
+        "HAL_INITIALIZATION_FAILED"
+      ],
+      "severity": "",
+      "title": "0x0000005C 蓝屏代码：HAL_INITIALIZATION_FAILED",
+      "summary": "硬件抽象层初始化失败。建议：硬件 / 安装介质 / BIOS",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x00000020",
+          "name": "KERNEL_APC_PENDING_DURING_EXIT"
+        },
+        {
+          "code": "0x0000002B",
+          "name": "PANIC_STACK_SWITCH"
+        },
+        {
+          "code": "0x0000002E",
+          "name": "DATA_BUS_ERROR"
+        },
+        {
+          "code": "0x00000051",
+          "name": "REGISTRY_ERROR"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x0000005c/"
+    },
+    {
+      "code": "0x0000007A",
+      "name": "KERNEL_DATA_INPAGE_ERROR",
+      "category": "存储与文件系统",
+      "source_url": "https://www.3z9w.com/bsod/0x0000007a/",
+      "keywords": [
+        "0x0000007A",
+        "KERNEL_DATA_INPAGE_ERROR"
+      ],
+      "severity": "",
+      "title": "0x0000007A 蓝屏代码：KERNEL_DATA_INPAGE_ERROR",
+      "summary": "分页文件数据读不回来。建议：硬盘健康 / 数据线 / 坏道",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x00000023",
+          "name": "FAT_FILE_SYSTEM"
+        },
+        {
+          "code": "0x00000024",
+          "name": "NTFS_FILE_SYSTEM"
+        },
+        {
+          "code": "0x0000007B",
+          "name": "INACCESSIBLE_BOOT_DEVICE"
+        },
+        {
+          "code": "0x000000ED",
+          "name": "UNMOUNTABLE_BOOT_VOLUME"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x0000007a/"
+    },
+    {
+      "code": "0x0000007B",
+      "name": "INACCESSIBLE_BOOT_DEVICE",
+      "category": "存储与文件系统",
+      "source_url": "https://www.3z9w.com/bsod/0x0000007b/",
+      "keywords": [
+        "0x0000007B",
+        "INACCESSIBLE_BOOT_DEVICE"
+      ],
+      "severity": "高 · 可能进不了系统",
+      "title": "0x0000007B 蓝屏怎么解决?原因与 5 步排查",
+      "summary": "系统启动时找不到启动盘。最常见不是硬盘坏了,而是 BIOS 的 SATA/RAID 模式被改、存储驱动丢了,或者系统更新后引导坏了。",
+      "quick_tips": [
+        "进 BIOS 看 SATA 模式是否被改",
+        "试安全模式,能进就偏驱动",
+        "用 PE 看硬盘是否被识别"
+      ],
+      "params": [
+        {
+          "name": "Param 1",
+          "desc": "无法初始化的设备对象地址"
+        },
+        {
+          "name": "Param 2",
+          "desc": "保留,通常为 0"
+        },
+        {
+          "name": "Param 3",
+          "desc": "保留,通常为 0"
+        },
+        {
+          "name": "Param 4",
+          "desc": "保留,通常为 0"
+        }
+      ],
+      "causes": [
+        {
+          "title": "BIOS/UEFI 或 SATA 模式被改",
+          "desc": "开了 VMD/RAID、改成 IDE,或换主板后设置不一致。",
+          "level": "高"
+        },
+        {
+          "title": "存储驱动缺失或冲突",
+          "desc": "Intel RST/VMD 驱动、NVMe 驱动未加载。",
+          "level": "高"
+        },
+        {
+          "title": "硬盘/SSD 掉线或坏道",
+          "desc": "接触不良、线材、供电或盘本身故障。",
+          "level": "中"
+        },
+        {
+          "title": "系统更新后引导损坏",
+          "desc": "BCD 或引导分区被写坏。",
+          "level": "中"
+        },
+        {
+          "title": "分区表/病毒破坏",
+          "desc": "较少见,通常伴随其他异常。",
+          "level": "低"
+        }
+      ],
+      "steps": [
+        {
+          "title": "进 BIOS 恢复默认",
+          "desc": "确认 SATA 模式为 AHCI(或与安装系统时一致),关闭 VMD/RAID 后再试。"
+        },
+        {
+          "title": "试安全模式",
+          "desc": "重启时按 F8,或 Shift+重启 → 疑难解答 → 高级选项 → 启动设置。能进,基本是驱动问题。"
+        },
+        {
+          "title": "用 PE U 盘启动看硬盘",
+          "desc": "打开磁盘管理:认不到盘 → 优先查线材、供电、硬盘;认得到 → 继续下一步。"
+        },
+        {
+          "title": "修引导与文件系统",
+          "desc": "PE 里依次执行 chkdsk C: /f /r 、 bootrec /fixmbr 、 bootrec /fixboot 、 bootrec /rebuildbcd 。"
+        },
+        {
+          "title": "回退或修复安装",
+          "desc": "卸载最近更新、系统还原;仍不行再做修复安装(保留文件)。"
+        }
+      ],
+      "warnings": [
+        "硬盘有异响、BIOS 里直接不认盘",
+        "里面有重要资料,不敢再折腾",
+        "按上面做完仍然 7B"
+      ],
+      "faqs": [
+        {
+          "q": "7B 一定是硬盘坏了吗?",
+          "a": "不一定。先看 BIOS 模式和存储驱动,这两项占的比例比硬盘故障更高。"
+        },
+        {
+          "q": "能进安全模式说明什么?",
+          "a": "说明引导和硬件基本正常,问题更可能在驱动或最近安装的软件上。"
+        },
+        {
+          "q": "重装系统能解决 7B 吗?",
+          "a": "能绕过,但如果是硬盘或线材故障,重装后还会复发。重装前先备份。"
+        }
+      ],
+      "related": [
+        {
+          "code": "0x00000023",
+          "name": "FAT_FILE_SYSTEM"
+        },
+        {
+          "code": "0x00000024",
+          "name": "NTFS_FILE_SYSTEM"
+        },
+        {
+          "code": "0x0000007A",
+          "name": "KERNEL_DATA_INPAGE_ERROR"
+        },
+        {
+          "code": "0x000000ED",
+          "name": "UNMOUNTABLE_BOOT_VOLUME"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x0000007b/"
+    },
+    {
+      "code": "0x0000007E",
+      "name": "SYSTEM_THREAD_EXCEPTION_NOT_HANDLED",
+      "category": "异常与卡死",
+      "source_url": "https://www.3z9w.com/bsod/0x0000007e/",
+      "keywords": [
+        "0x0000007E",
+        "SYSTEM_THREAD_EXCEPTION_NOT_HANDLED"
+      ],
+      "severity": "",
+      "title": "0x0000007E 蓝屏代码：SYSTEM_THREAD_EXCEPTION_NOT_HANDLED",
+      "summary": "系统线程异常没人接管。建议：看第二行报错的文件名",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x0000001E",
+          "name": "KMODE_EXCEPTION_NOT_HANDLED"
+        },
+        {
+          "code": "0x0000003B",
+          "name": "SYSTEM_SERVICE_EXCEPTION"
+        },
+        {
+          "code": "0x000000EA",
+          "name": "THREAD_STUCK_IN_DEVICE_DRIVER"
+        },
+        {
+          "code": "0x000000F7",
+          "name": "DRIVER_OVERRAN_STACK_BUFFER"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x0000007e/"
+    },
+    {
+      "code": "0x0000007F",
+      "name": "UNEXPECTED_KERNEL_MODE_TRAP",
+      "category": "系统与内核",
+      "source_url": "https://www.3z9w.com/bsod/0x0000007f/",
+      "keywords": [
+        "0x0000007F",
+        "UNEXPECTED_KERNEL_MODE_TRAP"
+      ],
+      "severity": "",
+      "title": "0x0000007F 蓝屏代码：UNEXPECTED_KERNEL_MODE_TRAP",
+      "summary": "内核陷阱,常见双重错误。建议：驱动 / 超频 / 散热",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x00000020",
+          "name": "KERNEL_APC_PENDING_DURING_EXIT"
+        },
+        {
+          "code": "0x0000002B",
+          "name": "PANIC_STACK_SWITCH"
+        },
+        {
+          "code": "0x0000002E",
+          "name": "DATA_BUS_ERROR"
+        },
+        {
+          "code": "0x00000051",
+          "name": "REGISTRY_ERROR"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x0000007f/"
+    },
+    {
+      "code": "0x0000008E",
+      "name": "KERNEL_MODE_EXCEPTION_NOT_HANDLED",
+      "category": "系统与内核",
+      "source_url": "https://www.3z9w.com/bsod/0x0000008e/",
+      "keywords": [
+        "0x0000008E",
+        "KERNEL_MODE_EXCEPTION_NOT_HANDLED"
+      ],
+      "severity": "",
+      "title": "0x0000008E 蓝屏代码：KERNEL_MODE_EXCEPTION_NOT_HANDLED",
+      "summary": "老式内核异常(32 位常见)。建议：驱动兼容性",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x00000020",
+          "name": "KERNEL_APC_PENDING_DURING_EXIT"
+        },
+        {
+          "code": "0x0000002B",
+          "name": "PANIC_STACK_SWITCH"
+        },
+        {
+          "code": "0x0000002E",
+          "name": "DATA_BUS_ERROR"
+        },
+        {
+          "code": "0x00000051",
+          "name": "REGISTRY_ERROR"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x0000008e/"
+    },
+    {
+      "code": "0x0000009C",
+      "name": "MACHINE_CHECK_EXCEPTION",
+      "category": "硬件与 CPU",
+      "source_url": "https://www.3z9w.com/bsod/0x0000009c/",
+      "keywords": [
+        "0x0000009C",
+        "MACHINE_CHECK_EXCEPTION"
+      ],
+      "severity": "",
+      "title": "0x0000009C 蓝屏代码：MACHINE_CHECK_EXCEPTION",
+      "summary": "CPU 机器检查异常。建议：超频 / 供电 / 散热",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x0000004C",
+          "name": "FATAL_UNHANDLED_HARD_ERROR"
+        },
+        {
+          "code": "0x00000101",
+          "name": "CLOCK_WATCHDOG_TIMEOUT"
+        },
+        {
+          "code": "0x00000122",
+          "name": "WHEA_INTERNAL_ERROR"
+        },
+        {
+          "code": "0x00000124",
+          "name": "WHEA_UNCORRECTABLE_ERROR"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x0000009c/"
+    },
+    {
+      "code": "0x0000009F",
+      "name": "DRIVER_POWER_STATE_FAILURE",
+      "category": "电源 · USB · 网络",
+      "source_url": "https://www.3z9w.com/bsod/0x0000009f/",
+      "keywords": [
+        "0x0000009F",
+        "DRIVER_POWER_STATE_FAILURE"
+      ],
+      "severity": "",
+      "title": "0x0000009F 蓝屏代码：DRIVER_POWER_STATE_FAILURE",
+      "summary": "驱动没完成电源状态切换。建议：芯片组 / 显卡驱动",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x000000A0",
+          "name": "INTERNAL_POWER_ERROR"
+        },
+        {
+          "code": "0x000000FE",
+          "name": "BUGCODE_USB_DRIVER"
+        },
+        {
+          "code": "0x0000015F",
+          "name": "CONNECTED_STANDBY_WATCHDOG_TIMEOUT_LIVEDUMP"
+        },
+        {
+          "code": "0x000001A5",
+          "name": "USB_DRIPS_BLOCKER_SURPRISE_REMOVAL_LIVEDUMP"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x0000009f/"
+    },
+    {
+      "code": "0x000000A0",
+      "name": "INTERNAL_POWER_ERROR",
+      "category": "电源 · USB · 网络",
+      "source_url": "https://www.3z9w.com/bsod/0x000000a0/",
+      "keywords": [
+        "0x000000A0",
+        "INTERNAL_POWER_ERROR"
+      ],
+      "severity": "",
+      "title": "0x000000A0 蓝屏代码：INTERNAL_POWER_ERROR",
+      "summary": "电源策略内部错误。建议：关快速启动,查休眠设置",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x0000009F",
+          "name": "DRIVER_POWER_STATE_FAILURE"
+        },
+        {
+          "code": "0x000000FE",
+          "name": "BUGCODE_USB_DRIVER"
+        },
+        {
+          "code": "0x0000015F",
+          "name": "CONNECTED_STANDBY_WATCHDOG_TIMEOUT_LIVEDUMP"
+        },
+        {
+          "code": "0x000001A5",
+          "name": "USB_DRIPS_BLOCKER_SURPRISE_REMOVAL_LIVEDUMP"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x000000a0/"
+    },
+    {
+      "code": "0x000000BE",
+      "name": "ATTEMPTED_WRITE_TO_READONLY_MEMORY",
+      "category": "内存与分页",
+      "source_url": "https://www.3z9w.com/bsod/0x000000be/",
+      "keywords": [
+        "0x000000BE",
+        "ATTEMPTED_WRITE_TO_READONLY_MEMORY"
+      ],
+      "severity": "",
+      "title": "0x000000BE 蓝屏代码：ATTEMPTED_WRITE_TO_READONLY_MEMORY",
+      "summary": "驱动试图写只读内存。建议：更新或卸载该驱动",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x00000019",
+          "name": "BAD_POOL_HEADER"
+        },
+        {
+          "code": "0x0000001A",
+          "name": "MEMORY_MANAGEMENT"
+        },
+        {
+          "code": "0x0000004E",
+          "name": "PFN_LIST_CORRUPT"
+        },
+        {
+          "code": "0x00000050",
+          "name": "PAGE_FAULT_IN_NONPAGED_AREA"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x000000be/"
+    },
+    {
+      "code": "0x000000C1",
+      "name": "SPECIAL_POOL_DETECTED_MEMORY_CORRUPTION",
+      "category": "驱动与 IRQL",
+      "source_url": "https://www.3z9w.com/bsod/0x000000c1/",
+      "keywords": [
+        "0x000000C1",
+        "SPECIAL_POOL_DETECTED_MEMORY_CORRUPTION"
+      ],
+      "severity": "",
+      "title": "0x000000C1 蓝屏代码：SPECIAL_POOL_DETECTED_MEMORY_CORRUPTION",
+      "summary": "驱动越界写特殊内存池。建议：查最近更新的驱动",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x0000000A",
+          "name": "IRQL_NOT_LESS_OR_EQUAL"
+        },
+        {
+          "code": "0x000000C4",
+          "name": "DRIVER_VERIFIER_DETECTED_VIOLATION"
+        },
+        {
+          "code": "0x000000C5",
+          "name": "DRIVER_CORRUPTED_EXPOOL"
+        },
+        {
+          "code": "0x000000C6",
+          "name": "DRIVER_CAUGHT_MODIFYING_FREED_POOL"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x000000c1/"
+    },
+    {
+      "code": "0x000000C2",
+      "name": "BAD_POOL_CALLER",
+      "category": "内存与分页",
+      "source_url": "https://www.3z9w.com/bsod/0x000000c2/",
+      "keywords": [
+        "0x000000C2",
+        "BAD_POOL_CALLER"
+      ],
+      "severity": "",
+      "title": "0x000000C2 蓝屏代码：BAD_POOL_CALLER",
+      "summary": "驱动错误地申请或释放内存。建议：查驱动,尤其安全软件",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x00000019",
+          "name": "BAD_POOL_HEADER"
+        },
+        {
+          "code": "0x0000001A",
+          "name": "MEMORY_MANAGEMENT"
+        },
+        {
+          "code": "0x0000004E",
+          "name": "PFN_LIST_CORRUPT"
+        },
+        {
+          "code": "0x00000050",
+          "name": "PAGE_FAULT_IN_NONPAGED_AREA"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x000000c2/"
+    },
+    {
+      "code": "0x000000C4",
+      "name": "DRIVER_VERIFIER_DETECTED_VIOLATION",
+      "category": "驱动与 IRQL",
+      "source_url": "https://www.3z9w.com/bsod/0x000000c4/",
+      "keywords": [
+        "0x000000C4",
+        "DRIVER_VERIFIER_DETECTED_VIOLATION"
+      ],
+      "severity": "",
+      "title": "0x000000C4 蓝屏代码：DRIVER_VERIFIER_DETECTED_VIOLATION",
+      "summary": "驱动验证器当场抓到违规。建议：关验证器或修驱动",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x0000000A",
+          "name": "IRQL_NOT_LESS_OR_EQUAL"
+        },
+        {
+          "code": "0x000000C1",
+          "name": "SPECIAL_POOL_DETECTED_MEMORY_CORRUPTION"
+        },
+        {
+          "code": "0x000000C5",
+          "name": "DRIVER_CORRUPTED_EXPOOL"
+        },
+        {
+          "code": "0x000000C6",
+          "name": "DRIVER_CAUGHT_MODIFYING_FREED_POOL"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x000000c4/"
+    },
+    {
+      "code": "0x000000C5",
+      "name": "DRIVER_CORRUPTED_EXPOOL",
+      "category": "驱动与 IRQL",
+      "source_url": "https://www.3z9w.com/bsod/0x000000c5/",
+      "keywords": [
+        "0x000000C5",
+        "DRIVER_CORRUPTED_EXPOOL"
+      ],
+      "severity": "",
+      "title": "0x000000C5 蓝屏代码：DRIVER_CORRUPTED_EXPOOL",
+      "summary": "驱动写坏系统内存池。建议：验证器 + 特殊池",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x0000000A",
+          "name": "IRQL_NOT_LESS_OR_EQUAL"
+        },
+        {
+          "code": "0x000000C1",
+          "name": "SPECIAL_POOL_DETECTED_MEMORY_CORRUPTION"
+        },
+        {
+          "code": "0x000000C4",
+          "name": "DRIVER_VERIFIER_DETECTED_VIOLATION"
+        },
+        {
+          "code": "0x000000C6",
+          "name": "DRIVER_CAUGHT_MODIFYING_FREED_POOL"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x000000c5/"
+    },
+    {
+      "code": "0x000000C6",
+      "name": "DRIVER_CAUGHT_MODIFYING_FREED_POOL",
+      "category": "驱动与 IRQL",
+      "source_url": "https://www.3z9w.com/bsod/0x000000c6/",
+      "keywords": [
+        "0x000000C6",
+        "DRIVER_CAUGHT_MODIFYING_FREED_POOL"
+      ],
+      "severity": "",
+      "title": "0x000000C6 蓝屏代码：DRIVER_CAUGHT_MODIFYING_FREED_POOL",
+      "summary": "驱动改了已释放的内存池。建议：用验证器定位该驱动",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x0000000A",
+          "name": "IRQL_NOT_LESS_OR_EQUAL"
+        },
+        {
+          "code": "0x000000C1",
+          "name": "SPECIAL_POOL_DETECTED_MEMORY_CORRUPTION"
+        },
+        {
+          "code": "0x000000C4",
+          "name": "DRIVER_VERIFIER_DETECTED_VIOLATION"
+        },
+        {
+          "code": "0x000000C5",
+          "name": "DRIVER_CORRUPTED_EXPOOL"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x000000c6/"
+    },
+    {
+      "code": "0x000000C7",
+      "name": "TIMER_OR_DPC_INVALID",
+      "category": "驱动与 IRQL",
+      "source_url": "https://www.3z9w.com/bsod/0x000000c7/",
+      "keywords": [
+        "0x000000C7",
+        "TIMER_OR_DPC_INVALID"
+      ],
+      "severity": "",
+      "title": "0x000000C7 蓝屏代码：TIMER_OR_DPC_INVALID",
+      "summary": "定时器或 DPC 对象无效。建议：查驱动卸载残留",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x0000000A",
+          "name": "IRQL_NOT_LESS_OR_EQUAL"
+        },
+        {
+          "code": "0x000000C1",
+          "name": "SPECIAL_POOL_DETECTED_MEMORY_CORRUPTION"
+        },
+        {
+          "code": "0x000000C4",
+          "name": "DRIVER_VERIFIER_DETECTED_VIOLATION"
+        },
+        {
+          "code": "0x000000C5",
+          "name": "DRIVER_CORRUPTED_EXPOOL"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x000000c7/"
+    },
+    {
+      "code": "0x000000C8",
+      "name": "IRQL_UNEXPECTED_VALUE",
+      "category": "驱动与 IRQL",
+      "source_url": "https://www.3z9w.com/bsod/0x000000c8/",
+      "keywords": [
+        "0x000000C8",
+        "IRQL_UNEXPECTED_VALUE"
+      ],
+      "severity": "",
+      "title": "0x000000C8 蓝屏代码：IRQL_UNEXPECTED_VALUE",
+      "summary": "IRQL 值不在预期范围。建议：驱动同步 / 电源管理",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x0000000A",
+          "name": "IRQL_NOT_LESS_OR_EQUAL"
+        },
+        {
+          "code": "0x000000C1",
+          "name": "SPECIAL_POOL_DETECTED_MEMORY_CORRUPTION"
+        },
+        {
+          "code": "0x000000C4",
+          "name": "DRIVER_VERIFIER_DETECTED_VIOLATION"
+        },
+        {
+          "code": "0x000000C5",
+          "name": "DRIVER_CORRUPTED_EXPOOL"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x000000c8/"
+    },
+    {
+      "code": "0x000000C9",
+      "name": "DRIVER_VERIFIER_IOMANAGER_VIOLATION",
+      "category": "驱动与 IRQL",
+      "source_url": "https://www.3z9w.com/bsod/0x000000c9/",
+      "keywords": [
+        "0x000000C9",
+        "DRIVER_VERIFIER_IOMANAGER_VIOLATION"
+      ],
+      "severity": "",
+      "title": "0x000000C9 蓝屏代码：DRIVER_VERIFIER_IOMANAGER_VIOLATION",
+      "summary": "验证器发现 I/O 管理违规。建议：修对应驱动",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x0000000A",
+          "name": "IRQL_NOT_LESS_OR_EQUAL"
+        },
+        {
+          "code": "0x000000C1",
+          "name": "SPECIAL_POOL_DETECTED_MEMORY_CORRUPTION"
+        },
+        {
+          "code": "0x000000C4",
+          "name": "DRIVER_VERIFIER_DETECTED_VIOLATION"
+        },
+        {
+          "code": "0x000000C5",
+          "name": "DRIVER_CORRUPTED_EXPOOL"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x000000c9/"
+    },
+    {
+      "code": "0x000000CE",
+      "name": "DRIVER_UNLOADED_WITHOUT_CANCELLING_PENDING_OPERATIONS",
+      "category": "驱动与 IRQL",
+      "source_url": "https://www.3z9w.com/bsod/0x000000ce/",
+      "keywords": [
+        "0x000000CE",
+        "DRIVER_UNLOADED_WITHOUT_CANCELLING_PENDING_OPERATIONS"
+      ],
+      "severity": "",
+      "title": "0x000000CE 蓝屏代码：DRIVER_UNLOADED_WITHOUT_CANCELLING_PENDING_OPERATIONS",
+      "summary": "驱动卸载时还有挂起操作。建议：更新该驱动",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x0000000A",
+          "name": "IRQL_NOT_LESS_OR_EQUAL"
+        },
+        {
+          "code": "0x000000C1",
+          "name": "SPECIAL_POOL_DETECTED_MEMORY_CORRUPTION"
+        },
+        {
+          "code": "0x000000C4",
+          "name": "DRIVER_VERIFIER_DETECTED_VIOLATION"
+        },
+        {
+          "code": "0x000000C5",
+          "name": "DRIVER_CORRUPTED_EXPOOL"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x000000ce/"
+    },
+    {
+      "code": "0x000000CF",
+      "name": "TERMINAL_SERVER_DRIVER_MADE_INCORRECT_MEMORY_REFERENCE",
+      "category": "驱动与 IRQL",
+      "source_url": "https://www.3z9w.com/bsod/0x000000cf/",
+      "keywords": [
+        "0x000000CF",
+        "TERMINAL_SERVER_DRIVER_MADE_INCORRECT_MEMORY_REFERENCE"
+      ],
+      "severity": "",
+      "title": "0x000000CF 蓝屏代码：TERMINAL_SERVER_DRIVER_MADE_INCORRECT_MEMORY_REFERENCE",
+      "summary": "远程桌面/会话驱动错误引用内存。建议：更新显卡/远程桌面驱动",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x0000000A",
+          "name": "IRQL_NOT_LESS_OR_EQUAL"
+        },
+        {
+          "code": "0x000000C1",
+          "name": "SPECIAL_POOL_DETECTED_MEMORY_CORRUPTION"
+        },
+        {
+          "code": "0x000000C4",
+          "name": "DRIVER_VERIFIER_DETECTED_VIOLATION"
+        },
+        {
+          "code": "0x000000C5",
+          "name": "DRIVER_CORRUPTED_EXPOOL"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x000000cf/"
+    },
+    {
+      "code": "0x000000D0",
+      "name": "DRIVER_CORRUPTED_MMPOOL",
+      "category": "驱动与 IRQL",
+      "source_url": "https://www.3z9w.com/bsod/0x000000d0/",
+      "keywords": [
+        "0x000000D0",
+        "DRIVER_CORRUPTED_MMPOOL"
+      ],
+      "severity": "",
+      "title": "0x000000D0 蓝屏代码：DRIVER_CORRUPTED_MMPOOL",
+      "summary": "驱动破坏了内存管理池。建议：验证器 + 特殊池",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x0000000A",
+          "name": "IRQL_NOT_LESS_OR_EQUAL"
+        },
+        {
+          "code": "0x000000C1",
+          "name": "SPECIAL_POOL_DETECTED_MEMORY_CORRUPTION"
+        },
+        {
+          "code": "0x000000C4",
+          "name": "DRIVER_VERIFIER_DETECTED_VIOLATION"
+        },
+        {
+          "code": "0x000000C5",
+          "name": "DRIVER_CORRUPTED_EXPOOL"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x000000d0/"
+    },
+    {
+      "code": "0x000000D1",
+      "name": "DRIVER_IRQL_NOT_LESS_OR_EQUAL",
+      "category": "驱动与 IRQL",
+      "source_url": "https://www.3z9w.com/bsod/0x000000d1/",
+      "keywords": [
+        "0x000000D1",
+        "DRIVER_IRQL_NOT_LESS_OR_EQUAL"
+      ],
+      "severity": "中高 · 典型驱动问题",
+      "title": "0x000000D1 蓝屏:哪个驱动在捣乱?怎么查",
+      "summary": "某个驱动在 DISPATCH_LEVEL 或更高的 IRQL 上访问了分页内存。大多数情况能定位到具体驱动,关键是把名字找出来。",
+      "quick_tips": [
+        "找到蓝屏里的 .sys 名字",
+        "更新或回滚该驱动",
+        "关掉 Driver Verifier 再试"
+      ],
+      "params": [
+        {
+          "name": "Param 1",
+          "desc": "被引用的内存地址"
+        },
+        {
+          "name": "Param 2",
+          "desc": "发生时的 IRQL"
+        },
+        {
+          "name": "Param 3",
+          "desc": "0=读,1=写,8=执行"
+        },
+        {
+          "name": "Param 4",
+          "desc": "引用内存的指令地址"
+        }
+      ],
+      "causes": [
+        {
+          "title": "第三方驱动 bug",
+          "desc": "网卡、无线、存储、外设、杀软驱动最常见。",
+          "level": "高"
+        },
+        {
+          "title": "驱动版本不匹配",
+          "desc": "系统大版本更新后,旧驱动仍在使用。",
+          "level": "高"
+        },
+        {
+          "title": "内存/超频",
+          "desc": "少数情况,通常同时出现 0x1A、0x50。",
+          "level": "低"
+        }
+      ],
+      "steps": [
+        {
+          "title": "记下文件名",
+          "desc": "蓝屏第二行、或 dump 里的 !analyze -v 会给出 IMAGE_NAME。"
+        },
+        {
+          "title": "查这个文件是谁的",
+          "desc": "按文件名搜厂商,或看文件属性/签名;不确定就把名字发我。"
+        },
+        {
+          "title": "更新/回滚",
+          "desc": "优先去厂商官网装对应型号、对应系统版本的驱动,不要用万能驱动。"
+        },
+        {
+          "title": "安全模式观察",
+          "desc": "卸载后进安全模式跑一天,确认不再蓝。"
+        },
+        {
+          "title": "最后再开验证器",
+          "desc": "Driver Verifier 只在定位阶段开,定位到就关,别长期开着。"
+        }
+      ],
+      "warnings": [
+        "不知道 .sys 是哪个软件的",
+        "卸载后开机仍蓝",
+        "驱动是存储/芯片组,怕弄坏系统"
+      ],
+      "faqs": [
+        {
+          "q": "D1 一定是驱动吗?",
+          "a": "绝大多数是。少数是内存不稳导致的误报,但优先查驱动。"
+        },
+        {
+          "q": "用 Driver Verifier 会更准吗?",
+          "a": "会更准,但开错设置可能导致进不了系统,建议有人指导再开。"
+        },
+        {
+          "q": "更新驱动用第三方工具行吗?",
+          "a": "不建议。型号和版本对不上,反而更容易 D1。"
+        }
+      ],
+      "related": [
+        {
+          "code": "0x0000000A",
+          "name": "IRQL_NOT_LESS_OR_EQUAL"
+        },
+        {
+          "code": "0x000000C1",
+          "name": "SPECIAL_POOL_DETECTED_MEMORY_CORRUPTION"
+        },
+        {
+          "code": "0x000000C4",
+          "name": "DRIVER_VERIFIER_DETECTED_VIOLATION"
+        },
+        {
+          "code": "0x000000C5",
+          "name": "DRIVER_CORRUPTED_EXPOOL"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x000000d1/"
+    },
+    {
+      "code": "0x000000D5",
+      "name": "DRIVER_PAGE_FAULT_IN_FREED_SPECIAL_POOL",
+      "category": "驱动与 IRQL",
+      "source_url": "https://www.3z9w.com/bsod/0x000000d5/",
+      "keywords": [
+        "0x000000D5",
+        "DRIVER_PAGE_FAULT_IN_FREED_SPECIAL_POOL"
+      ],
+      "severity": "",
+      "title": "0x000000D5 蓝屏代码：DRIVER_PAGE_FAULT_IN_FREED_SPECIAL_POOL",
+      "summary": "驱动访问已释放的特殊池。建议：查驱动的释放逻辑",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x0000000A",
+          "name": "IRQL_NOT_LESS_OR_EQUAL"
+        },
+        {
+          "code": "0x000000C1",
+          "name": "SPECIAL_POOL_DETECTED_MEMORY_CORRUPTION"
+        },
+        {
+          "code": "0x000000C4",
+          "name": "DRIVER_VERIFIER_DETECTED_VIOLATION"
+        },
+        {
+          "code": "0x000000C5",
+          "name": "DRIVER_CORRUPTED_EXPOOL"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x000000d5/"
+    },
+    {
+      "code": "0x000000D6",
+      "name": "DRIVER_PAGE_FAULT_BEYOND_END_OF_ALLOCATION",
+      "category": "驱动与 IRQL",
+      "source_url": "https://www.3z9w.com/bsod/0x000000d6/",
+      "keywords": [
+        "0x000000D6",
+        "DRIVER_PAGE_FAULT_BEYOND_END_OF_ALLOCATION"
+      ],
+      "severity": "",
+      "title": "0x000000D6 蓝屏代码：DRIVER_PAGE_FAULT_BEYOND_END_OF_ALLOCATION",
+      "summary": "驱动越界访问分配区。建议：查缓冲区越界",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x0000000A",
+          "name": "IRQL_NOT_LESS_OR_EQUAL"
+        },
+        {
+          "code": "0x000000C1",
+          "name": "SPECIAL_POOL_DETECTED_MEMORY_CORRUPTION"
+        },
+        {
+          "code": "0x000000C4",
+          "name": "DRIVER_VERIFIER_DETECTED_VIOLATION"
+        },
+        {
+          "code": "0x000000C5",
+          "name": "DRIVER_CORRUPTED_EXPOOL"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x000000d6/"
+    },
+    {
+      "code": "0x000000DE",
+      "name": "POOL_CORRUPTION_IN_FILE_AREA",
+      "category": "内存与分页",
+      "source_url": "https://www.3z9w.com/bsod/0x000000de/",
+      "keywords": [
+        "0x000000DE",
+        "POOL_CORRUPTION_IN_FILE_AREA"
+      ],
+      "severity": "",
+      "title": "0x000000DE 蓝屏代码：POOL_CORRUPTION_IN_FILE_AREA",
+      "summary": "文件缓存区的内存池损坏。建议：内存 / 文件系统驱动",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x00000019",
+          "name": "BAD_POOL_HEADER"
+        },
+        {
+          "code": "0x0000001A",
+          "name": "MEMORY_MANAGEMENT"
+        },
+        {
+          "code": "0x0000004E",
+          "name": "PFN_LIST_CORRUPT"
+        },
+        {
+          "code": "0x00000050",
+          "name": "PAGE_FAULT_IN_NONPAGED_AREA"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x000000de/"
+    },
+    {
+      "code": "0x000000E1",
+      "name": "WORKER_THREAD_RETURNED_AT_BAD_IRQL",
+      "category": "驱动与 IRQL",
+      "source_url": "https://www.3z9w.com/bsod/0x000000e1/",
+      "keywords": [
+        "0x000000E1",
+        "WORKER_THREAD_RETURNED_AT_BAD_IRQL"
+      ],
+      "severity": "",
+      "title": "0x000000E1 蓝屏代码：WORKER_THREAD_RETURNED_AT_BAD_IRQL",
+      "summary": "工作线程以错误 IRQL 返回。建议：驱动同步问题",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x0000000A",
+          "name": "IRQL_NOT_LESS_OR_EQUAL"
+        },
+        {
+          "code": "0x000000C1",
+          "name": "SPECIAL_POOL_DETECTED_MEMORY_CORRUPTION"
+        },
+        {
+          "code": "0x000000C4",
+          "name": "DRIVER_VERIFIER_DETECTED_VIOLATION"
+        },
+        {
+          "code": "0x000000C5",
+          "name": "DRIVER_CORRUPTED_EXPOOL"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x000000e1/"
+    },
+    {
+      "code": "0x000000E6",
+      "name": "DRIVER_VERIFIER_DMA_VIOLATION",
+      "category": "驱动与 IRQL",
+      "source_url": "https://www.3z9w.com/bsod/0x000000e6/",
+      "keywords": [
+        "0x000000E6",
+        "DRIVER_VERIFIER_DMA_VIOLATION"
+      ],
+      "severity": "",
+      "title": "0x000000E6 蓝屏代码：DRIVER_VERIFIER_DMA_VIOLATION",
+      "summary": "验证器发现 DMA 违规。建议：老驱动 / 硬件兼容",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x0000000A",
+          "name": "IRQL_NOT_LESS_OR_EQUAL"
+        },
+        {
+          "code": "0x000000C1",
+          "name": "SPECIAL_POOL_DETECTED_MEMORY_CORRUPTION"
+        },
+        {
+          "code": "0x000000C4",
+          "name": "DRIVER_VERIFIER_DETECTED_VIOLATION"
+        },
+        {
+          "code": "0x000000C5",
+          "name": "DRIVER_CORRUPTED_EXPOOL"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x000000e6/"
+    },
+    {
+      "code": "0x000000EA",
+      "name": "THREAD_STUCK_IN_DEVICE_DRIVER",
+      "category": "异常与卡死",
+      "source_url": "https://www.3z9w.com/bsod/0x000000ea/",
+      "keywords": [
+        "0x000000EA",
+        "THREAD_STUCK_IN_DEVICE_DRIVER"
+      ],
+      "severity": "",
+      "title": "0x000000EA 蓝屏代码：THREAD_STUCK_IN_DEVICE_DRIVER",
+      "summary": "驱动里的线程卡死。建议：显卡 / 存储驱动",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x0000001E",
+          "name": "KMODE_EXCEPTION_NOT_HANDLED"
+        },
+        {
+          "code": "0x0000003B",
+          "name": "SYSTEM_SERVICE_EXCEPTION"
+        },
+        {
+          "code": "0x0000007E",
+          "name": "SYSTEM_THREAD_EXCEPTION_NOT_HANDLED"
+        },
+        {
+          "code": "0x000000F7",
+          "name": "DRIVER_OVERRAN_STACK_BUFFER"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x000000ea/"
+    },
+    {
+      "code": "0x000000ED",
+      "name": "UNMOUNTABLE_BOOT_VOLUME",
+      "category": "存储与文件系统",
+      "source_url": "https://www.3z9w.com/bsod/0x000000ed/",
+      "keywords": [
+        "0x000000ED",
+        "UNMOUNTABLE_BOOT_VOLUME"
+      ],
+      "severity": "",
+      "title": "0x000000ED 蓝屏代码：UNMOUNTABLE_BOOT_VOLUME",
+      "summary": "启动卷无法挂载。建议：修复引导 / 检查硬盘",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x00000023",
+          "name": "FAT_FILE_SYSTEM"
+        },
+        {
+          "code": "0x00000024",
+          "name": "NTFS_FILE_SYSTEM"
+        },
+        {
+          "code": "0x0000007A",
+          "name": "KERNEL_DATA_INPAGE_ERROR"
+        },
+        {
+          "code": "0x0000007B",
+          "name": "INACCESSIBLE_BOOT_DEVICE"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x000000ed/"
+    },
+    {
+      "code": "0x000000EF",
+      "name": "CRITICAL_PROCESS_DIED",
+      "category": "系统与内核",
+      "source_url": "https://www.3z9w.com/bsod/0x000000ef/",
+      "keywords": [
+        "0x000000EF",
+        "CRITICAL_PROCESS_DIED"
+      ],
+      "severity": "高 · 系统可能反复重启",
+      "title": "0x000000EF 蓝屏:关键进程被杀,怎么救",
+      "summary": "csrss、wininit、services 这类关键进程被终止。常见于系统文件损坏、杀软误杀、硬盘坏道或恶意软件。",
+      "quick_tips": [
+        "先进安全模式",
+        "跑 sfc /scannow 与 DISM",
+        "查硬盘健康"
+      ],
+      "params": [
+        {
+          "name": "Param 1",
+          "desc": "被终止进程的对象地址"
+        },
+        {
+          "name": "Param 2",
+          "desc": "保留,通常为 0"
+        },
+        {
+          "name": "Param 3",
+          "desc": "保留,通常为 0"
+        },
+        {
+          "name": "Param 4",
+          "desc": "保留,通常为 0"
+        }
+      ],
+      "causes": [
+        {
+          "title": "系统文件损坏",
+          "desc": "更新失败、断电、磁盘错误。",
+          "level": "高"
+        },
+        {
+          "title": "杀软/安全软件误杀",
+          "desc": "拦截了关键进程。",
+          "level": "中"
+        },
+        {
+          "title": "硬盘坏道",
+          "desc": "关键文件读不出来。",
+          "level": "中"
+        },
+        {
+          "title": "恶意软件",
+          "desc": "篡改系统进程。",
+          "level": "低"
+        }
+      ],
+      "steps": [
+        {
+          "title": "进安全模式",
+          "desc": "能进 → 先卸载最近更新、杀软、优化工具。"
+        },
+        {
+          "title": "修系统文件",
+          "desc": "sfc /scannow ;再用 DISM /Online /Cleanup-Image /RestoreHealth 。"
+        },
+        {
+          "title": "查硬盘",
+          "desc": "chkdsk C: /f /r ,看 SMART。"
+        },
+        {
+          "title": "系统还原",
+          "desc": "有还原点就回退到出问题之前。"
+        },
+        {
+          "title": "修复安装/备份",
+          "desc": "仍不行做修复安装;先备份数据。"
+        }
+      ],
+      "warnings": [
+        "安全模式也进不去",
+        "反复重启、无法备份",
+        "硬盘有异响"
+      ],
+      "faqs": [
+        {
+          "q": "EF 一定要重装吗?",
+          "a": "不一定,先修系统文件和查硬盘,很多能救回来。"
+        },
+        {
+          "q": "和 0xC000021A 有什么区别?",
+          "a": "021A 更针对 Winlogon/CSRSS 登录环节,EF 是通用关键进程。"
+        },
+        {
+          "q": "杀软会导致 EF 吗?",
+          "a": "会,尤其是带主动防御/内核驱动的安全软件。"
+        }
+      ],
+      "related": [
+        {
+          "code": "0x00000020",
+          "name": "KERNEL_APC_PENDING_DURING_EXIT"
+        },
+        {
+          "code": "0x0000002B",
+          "name": "PANIC_STACK_SWITCH"
+        },
+        {
+          "code": "0x0000002E",
+          "name": "DATA_BUS_ERROR"
+        },
+        {
+          "code": "0x00000051",
+          "name": "REGISTRY_ERROR"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x000000ef/"
+    },
+    {
+      "code": "0x000000F4",
+      "name": "CRITICAL_OBJECT_TERMINATION",
+      "category": "系统与内核",
+      "source_url": "https://www.3z9w.com/bsod/0x000000f4/",
+      "keywords": [
+        "0x000000F4",
+        "CRITICAL_OBJECT_TERMINATION"
+      ],
+      "severity": "",
+      "title": "0x000000F4 蓝屏代码：CRITICAL_OBJECT_TERMINATION",
+      "summary": "关键对象被意外终止。建议：系统文件 / 驱动",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x00000020",
+          "name": "KERNEL_APC_PENDING_DURING_EXIT"
+        },
+        {
+          "code": "0x0000002B",
+          "name": "PANIC_STACK_SWITCH"
+        },
+        {
+          "code": "0x0000002E",
+          "name": "DATA_BUS_ERROR"
+        },
+        {
+          "code": "0x00000051",
+          "name": "REGISTRY_ERROR"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x000000f4/"
+    },
+    {
+      "code": "0x000000F5",
+      "name": "FLTMGR_FILE_SYSTEM",
+      "category": "存储与文件系统",
+      "source_url": "https://www.3z9w.com/bsod/0x000000f5/",
+      "keywords": [
+        "0x000000F5",
+        "FLTMGR_FILE_SYSTEM"
+      ],
+      "severity": "",
+      "title": "0x000000F5 蓝屏代码：FLTMGR_FILE_SYSTEM",
+      "summary": "文件系统过滤驱动出错。建议：杀软 / 加密 / 备份软件",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x00000023",
+          "name": "FAT_FILE_SYSTEM"
+        },
+        {
+          "code": "0x00000024",
+          "name": "NTFS_FILE_SYSTEM"
+        },
+        {
+          "code": "0x0000007A",
+          "name": "KERNEL_DATA_INPAGE_ERROR"
+        },
+        {
+          "code": "0x0000007B",
+          "name": "INACCESSIBLE_BOOT_DEVICE"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x000000f5/"
+    },
+    {
+      "code": "0x000000F7",
+      "name": "DRIVER_OVERRAN_STACK_BUFFER",
+      "category": "异常与卡死",
+      "source_url": "https://www.3z9w.com/bsod/0x000000f7/",
+      "keywords": [
+        "0x000000F7",
+        "DRIVER_OVERRAN_STACK_BUFFER"
+      ],
+      "severity": "",
+      "title": "0x000000F7 蓝屏代码：DRIVER_OVERRAN_STACK_BUFFER",
+      "summary": "驱动栈缓冲区溢出。建议：查驱动 / 安全软件",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x0000001E",
+          "name": "KMODE_EXCEPTION_NOT_HANDLED"
+        },
+        {
+          "code": "0x0000003B",
+          "name": "SYSTEM_SERVICE_EXCEPTION"
+        },
+        {
+          "code": "0x0000007E",
+          "name": "SYSTEM_THREAD_EXCEPTION_NOT_HANDLED"
+        },
+        {
+          "code": "0x000000EA",
+          "name": "THREAD_STUCK_IN_DEVICE_DRIVER"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x000000f7/"
+    },
+    {
+      "code": "0x000000FE",
+      "name": "BUGCODE_USB_DRIVER",
+      "category": "电源 · USB · 网络",
+      "source_url": "https://www.3z9w.com/bsod/0x000000fe/",
+      "keywords": [
+        "0x000000FE",
+        "BUGCODE_USB_DRIVER"
+      ],
+      "severity": "",
+      "title": "0x000000FE 蓝屏代码：BUGCODE_USB_DRIVER",
+      "summary": "USB 驱动出错。建议：换接口 / 卸载 USB 驱动",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x0000009F",
+          "name": "DRIVER_POWER_STATE_FAILURE"
+        },
+        {
+          "code": "0x000000A0",
+          "name": "INTERNAL_POWER_ERROR"
+        },
+        {
+          "code": "0x0000015F",
+          "name": "CONNECTED_STANDBY_WATCHDOG_TIMEOUT_LIVEDUMP"
+        },
+        {
+          "code": "0x000001A5",
+          "name": "USB_DRIPS_BLOCKER_SURPRISE_REMOVAL_LIVEDUMP"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x000000fe/"
+    },
+    {
+      "code": "0x00000101",
+      "name": "CLOCK_WATCHDOG_TIMEOUT",
+      "category": "硬件与 CPU",
+      "source_url": "https://www.3z9w.com/bsod/0x00000101/",
+      "keywords": [
+        "0x00000101",
+        "CLOCK_WATCHDOG_TIMEOUT"
+      ],
+      "severity": "",
+      "title": "0x00000101 蓝屏代码：CLOCK_WATCHDOG_TIMEOUT",
+      "summary": "副处理器的时钟中断丢失。建议：还原超频,更新 BIOS",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x0000004C",
+          "name": "FATAL_UNHANDLED_HARD_ERROR"
+        },
+        {
+          "code": "0x0000009C",
+          "name": "MACHINE_CHECK_EXCEPTION"
+        },
+        {
+          "code": "0x00000122",
+          "name": "WHEA_INTERNAL_ERROR"
+        },
+        {
+          "code": "0x00000124",
+          "name": "WHEA_UNCORRECTABLE_ERROR"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x00000101/"
+    },
+    {
+      "code": "0x00000109",
+      "name": "CRITICAL_STRUCTURE_CORRUPTION",
+      "category": "系统与内核",
+      "source_url": "https://www.3z9w.com/bsod/0x00000109/",
+      "keywords": [
+        "0x00000109",
+        "CRITICAL_STRUCTURE_CORRUPTION"
+      ],
+      "severity": "",
+      "title": "0x00000109 蓝屏代码：CRITICAL_STRUCTURE_CORRUPTION",
+      "summary": "内核关键结构被篡改。建议：关超频,查安全软件",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x00000020",
+          "name": "KERNEL_APC_PENDING_DURING_EXIT"
+        },
+        {
+          "code": "0x0000002B",
+          "name": "PANIC_STACK_SWITCH"
+        },
+        {
+          "code": "0x0000002E",
+          "name": "DATA_BUS_ERROR"
+        },
+        {
+          "code": "0x00000051",
+          "name": "REGISTRY_ERROR"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x00000109/"
+    },
+    {
+      "code": "0x0000010E",
+      "name": "VIDEO_MEMORY_MANAGEMENT_INTERNAL",
+      "category": "显卡与显示",
+      "source_url": "https://www.3z9w.com/bsod/0x0000010e/",
+      "keywords": [
+        "0x0000010E",
+        "VIDEO_MEMORY_MANAGEMENT_INTERNAL"
+      ],
+      "severity": "",
+      "title": "0x0000010E 蓝屏代码：VIDEO_MEMORY_MANAGEMENT_INTERNAL",
+      "summary": "显存管理内部错误。建议：驱动 / 显存 / 关硬件加速",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x00000113",
+          "name": "VIDEO_DXGKRNL_FATAL_ERROR"
+        },
+        {
+          "code": "0x00000116",
+          "name": "VIDEO_TDR_FAILURE"
+        },
+        {
+          "code": "0x00000117",
+          "name": "VIDEO_TDR_TIMEOUT_DETECTED"
+        },
+        {
+          "code": "0x00000119",
+          "name": "VIDEO_SCHEDULER_INTERNAL_ERROR"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x0000010e/"
+    },
+    {
+      "code": "0x00000113",
+      "name": "VIDEO_DXGKRNL_FATAL_ERROR",
+      "category": "显卡与显示",
+      "source_url": "https://www.3z9w.com/bsod/0x00000113/",
+      "keywords": [
+        "0x00000113",
+        "VIDEO_DXGKRNL_FATAL_ERROR"
+      ],
+      "severity": "",
+      "title": "0x00000113 蓝屏代码：VIDEO_DXGKRNL_FATAL_ERROR",
+      "summary": "DXGKRNL 致命错误。建议：显卡驱动 + 系统更新",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x0000010E",
+          "name": "VIDEO_MEMORY_MANAGEMENT_INTERNAL"
+        },
+        {
+          "code": "0x00000116",
+          "name": "VIDEO_TDR_FAILURE"
+        },
+        {
+          "code": "0x00000117",
+          "name": "VIDEO_TDR_TIMEOUT_DETECTED"
+        },
+        {
+          "code": "0x00000119",
+          "name": "VIDEO_SCHEDULER_INTERNAL_ERROR"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x00000113/"
+    },
+    {
+      "code": "0x00000116",
+      "name": "VIDEO_TDR_FAILURE",
+      "category": "显卡与显示",
+      "source_url": "https://www.3z9w.com/bsod/0x00000116/",
+      "keywords": [
+        "0x00000116",
+        "VIDEO_TDR_FAILURE"
+      ],
+      "severity": "中高 · 显卡/驱动",
+      "title": "0x00000116 蓝屏:显卡 TDR 失败的解决办法",
+      "summary": "显卡在限定时间内没有响应,系统尝试复位也失败了。多数是驱动或散热,少数是显卡/供电硬件。",
+      "quick_tips": [
+        "DDU 清驱动再装",
+        "查显卡温度与风扇",
+        "降频/关超频测试"
+      ],
+      "params": [
+        {
+          "name": "Param 1",
+          "desc": "可选的 TDR 恢复上下文指针"
+        },
+        {
+          "name": "Param 2",
+          "desc": "出问题的显示驱动设备对象"
+        },
+        {
+          "name": "Param 3",
+          "desc": "次要 TDR 类型(部分版本)"
+        },
+        {
+          "name": "Param 4",
+          "desc": "保留"
+        }
+      ],
+      "causes": [
+        {
+          "title": "显卡驱动 bug/版本不匹配",
+          "desc": "更新后、旧卡新系统。",
+          "level": "高"
+        },
+        {
+          "title": "散热不良",
+          "desc": "积灰、风扇停转、硅脂干。",
+          "level": "高"
+        },
+        {
+          "title": "供电不足/电源老化",
+          "desc": "高负载瞬时功耗。",
+          "level": "中"
+        },
+        {
+          "title": "显存/显卡硬件",
+          "desc": "花屏、掉驱动、反复 116。",
+          "level": "中"
+        },
+        {
+          "title": "超频/降压",
+          "desc": "GPU 超频、曲线优化不稳。",
+          "level": "中"
+        }
+      ],
+      "steps": [
+        {
+          "title": "安全模式 DDU",
+          "desc": "彻底清除驱动,装官网对应型号的最新稳定版。"
+        },
+        {
+          "title": "看温度",
+          "desc": "游戏/渲染时 GPU、热点温度;超过 85–90°C 先处理散热。"
+        },
+        {
+          "title": "恢复默认频率",
+          "desc": "关掉 GPU 超频/降压,电源计划改高性能再测。"
+        },
+        {
+          "title": "换电源/插槽",
+          "desc": "台式机可换电源、换 PCIe 插槽、检查供电线。"
+        },
+        {
+          "title": "外接屏/扩展坞",
+          "desc": "笔记本外接设备也可能是诱因,拔掉再测。"
+        }
+      ],
+      "warnings": [
+        "换驱动、清灰后仍 116",
+        "伴随花屏、黑屏、风扇狂转",
+        "怀疑显卡硬件"
+      ],
+      "faqs": [
+        {
+          "q": "116 是显卡坏了吗?",
+          "a": "不一定,先换驱动版本、查散热;都排除后才怀疑硬件。"
+        },
+        {
+          "q": "TDR 是什么?",
+          "a": "显卡无响应超时后,系统尝试复位驱动的机制。"
+        },
+        {
+          "q": "笔记本能自己修吗?",
+          "a": "清灰换硅脂可以;显存/供电问题建议送修。"
+        }
+      ],
+      "related": [
+        {
+          "code": "0x0000010E",
+          "name": "VIDEO_MEMORY_MANAGEMENT_INTERNAL"
+        },
+        {
+          "code": "0x00000113",
+          "name": "VIDEO_DXGKRNL_FATAL_ERROR"
+        },
+        {
+          "code": "0x00000117",
+          "name": "VIDEO_TDR_TIMEOUT_DETECTED"
+        },
+        {
+          "code": "0x00000119",
+          "name": "VIDEO_SCHEDULER_INTERNAL_ERROR"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x00000116/"
+    },
+    {
+      "code": "0x00000117",
+      "name": "VIDEO_TDR_TIMEOUT_DETECTED",
+      "category": "显卡与显示",
+      "source_url": "https://www.3z9w.com/bsod/0x00000117/",
+      "keywords": [
+        "0x00000117",
+        "VIDEO_TDR_TIMEOUT_DETECTED"
+      ],
+      "severity": "",
+      "title": "0x00000117 蓝屏代码：VIDEO_TDR_TIMEOUT_DETECTED",
+      "summary": "显卡复位超时。建议：同上,降频并查温度",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x0000010E",
+          "name": "VIDEO_MEMORY_MANAGEMENT_INTERNAL"
+        },
+        {
+          "code": "0x00000113",
+          "name": "VIDEO_DXGKRNL_FATAL_ERROR"
+        },
+        {
+          "code": "0x00000116",
+          "name": "VIDEO_TDR_FAILURE"
+        },
+        {
+          "code": "0x00000119",
+          "name": "VIDEO_SCHEDULER_INTERNAL_ERROR"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x00000117/"
+    },
+    {
+      "code": "0x00000119",
+      "name": "VIDEO_SCHEDULER_INTERNAL_ERROR",
+      "category": "显卡与显示",
+      "source_url": "https://www.3z9w.com/bsod/0x00000119/",
+      "keywords": [
+        "0x00000119",
+        "VIDEO_SCHEDULER_INTERNAL_ERROR"
+      ],
+      "severity": "",
+      "title": "0x00000119 蓝屏代码：VIDEO_SCHEDULER_INTERNAL_ERROR",
+      "summary": "视频调度器发现驱动违规。建议：更新或回滚 GPU 驱动",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x0000010E",
+          "name": "VIDEO_MEMORY_MANAGEMENT_INTERNAL"
+        },
+        {
+          "code": "0x00000113",
+          "name": "VIDEO_DXGKRNL_FATAL_ERROR"
+        },
+        {
+          "code": "0x00000116",
+          "name": "VIDEO_TDR_FAILURE"
+        },
+        {
+          "code": "0x00000117",
+          "name": "VIDEO_TDR_TIMEOUT_DETECTED"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x00000119/"
+    },
+    {
+      "code": "0x00000122",
+      "name": "WHEA_INTERNAL_ERROR",
+      "category": "硬件与 CPU",
+      "source_url": "https://www.3z9w.com/bsod/0x00000122/",
+      "keywords": [
+        "0x00000122",
+        "WHEA_INTERNAL_ERROR"
+      ],
+      "severity": "",
+      "title": "0x00000122 蓝屏代码：WHEA_INTERNAL_ERROR",
+      "summary": "WHEA 内部错误。建议：更新 BIOS 与固件",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x0000004C",
+          "name": "FATAL_UNHANDLED_HARD_ERROR"
+        },
+        {
+          "code": "0x0000009C",
+          "name": "MACHINE_CHECK_EXCEPTION"
+        },
+        {
+          "code": "0x00000101",
+          "name": "CLOCK_WATCHDOG_TIMEOUT"
+        },
+        {
+          "code": "0x00000124",
+          "name": "WHEA_UNCORRECTABLE_ERROR"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x00000122/"
+    },
+    {
+      "code": "0x00000124",
+      "name": "WHEA_UNCORRECTABLE_ERROR",
+      "category": "硬件与 CPU",
+      "source_url": "https://www.3z9w.com/bsod/0x00000124/",
+      "keywords": [
+        "0x00000124",
+        "WHEA_UNCORRECTABLE_ERROR"
+      ],
+      "severity": "高 · 硬件级错误",
+      "title": "0x00000124 蓝屏:硬件报警,别急着重装",
+      "summary": "WHEA 报告了无法纠正的硬件错误。这不是系统坏了,是 CPU、内存、主板、PCIe 或供电在报警。重装系统没用。",
+      "quick_tips": [
+        "BIOS 全部恢复默认",
+        "关 XMP/超频,清灰换硅脂",
+        "单条内存、换插槽再试"
+      ],
+      "params": [
+        {
+          "name": "Param 1",
+          "desc": "错误源:0=MCE,1=CMC,2=NMI,3=PCIe,4=其他,5=BOOT"
+        },
+        {
+          "name": "Param 2",
+          "desc": "WHEA_ERROR_RECORD 结构地址"
+        },
+        {
+          "name": "Param 3",
+          "desc": "与错误源相关的附加信息"
+        },
+        {
+          "name": "Param 4",
+          "desc": "保留"
+        }
+      ],
+      "causes": [
+        {
+          "title": "CPU 超频/电压不当",
+          "desc": "PBO、曲线优化、手动倍频。",
+          "level": "高"
+        },
+        {
+          "title": "散热不良",
+          "desc": "积灰、硅脂干、风扇停转。",
+          "level": "高"
+        },
+        {
+          "title": "内存不稳",
+          "desc": "XMP/EXPO、混插、插槽问题。",
+          "level": "中"
+        },
+        {
+          "title": "电源老化/功率不足",
+          "desc": "高负载或瞬时功耗时触发。",
+          "level": "中"
+        },
+        {
+          "title": "主板/PCIe 设备",
+          "desc": "插槽、转接线、扩展卡。",
+          "level": "中"
+        }
+      ],
+      "steps": [
+        {
+          "title": "恢复默认",
+          "desc": "BIOS Load Optimized Defaults,关掉所有超频和 XMP。"
+        },
+        {
+          "title": "查温度",
+          "desc": "待机和满载温度都看;超过 90°C 先处理散热。"
+        },
+        {
+          "title": "清灰换硅脂",
+          "desc": "笔记本尤其重要,顺便检查风扇是否转。"
+        },
+        {
+          "title": "最小化硬件",
+          "desc": "单条内存、拔掉独显/扩展卡/多余硬盘,逐一加回。"
+        },
+        {
+          "title": "更新 BIOS 与固件",
+          "desc": "主板、SSD、显卡固件;更新后再观察。"
+        }
+      ],
+      "warnings": [
+        "默认频率、温度正常仍报 124",
+        "伴随死机、花屏、自动重启",
+        "怀疑电源或主板,别自己拆"
+      ],
+      "faqs": [
+        {
+          "q": "0x124 重装系统有用吗?",
+          "a": "基本没用。它指向硬件,不是系统文件。"
+        },
+        {
+          "q": "只有玩游戏才 124,是显卡吗?",
+          "a": "可能是显卡供电/温度,也可能是电源瞬时功率不够,先降频测试。"
+        },
+        {
+          "q": "笔记本 124 能自己修吗?",
+          "a": "清灰换硅脂可以尝试;主板/供电问题建议送修。"
+        }
+      ],
+      "related": [
+        {
+          "code": "0x0000004C",
+          "name": "FATAL_UNHANDLED_HARD_ERROR"
+        },
+        {
+          "code": "0x0000009C",
+          "name": "MACHINE_CHECK_EXCEPTION"
+        },
+        {
+          "code": "0x00000101",
+          "name": "CLOCK_WATCHDOG_TIMEOUT"
+        },
+        {
+          "code": "0x00000122",
+          "name": "WHEA_INTERNAL_ERROR"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x00000124/"
+    },
+    {
+      "code": "0x0000012B",
+      "name": "FAULTY_HARDWARE_CORRUPTED_PAGE",
+      "category": "内存与分页",
+      "source_url": "https://www.3z9w.com/bsod/0x0000012b/",
+      "keywords": [
+        "0x0000012B",
+        "FAULTY_HARDWARE_CORRUPTED_PAGE"
+      ],
+      "severity": "",
+      "title": "0x0000012B 蓝屏代码：FAULTY_HARDWARE_CORRUPTED_PAGE",
+      "summary": "硬件层面的位翻转。建议：内存 / 主板 / 关超频",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x00000019",
+          "name": "BAD_POOL_HEADER"
+        },
+        {
+          "code": "0x0000001A",
+          "name": "MEMORY_MANAGEMENT"
+        },
+        {
+          "code": "0x0000004E",
+          "name": "PFN_LIST_CORRUPT"
+        },
+        {
+          "code": "0x00000050",
+          "name": "PAGE_FAULT_IN_NONPAGED_AREA"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x0000012b/"
+    },
+    {
+      "code": "0x00000133",
+      "name": "DPC_WATCHDOG_VIOLATION",
+      "category": "异常与卡死",
+      "source_url": "https://www.3z9w.com/bsod/0x00000133/",
+      "keywords": [
+        "0x00000133",
+        "DPC_WATCHDOG_VIOLATION"
+      ],
+      "severity": "",
+      "title": "0x00000133 蓝屏代码：DPC_WATCHDOG_VIOLATION",
+      "summary": "驱动卡住 DPC 导致超时。建议：存储 / 网卡 / 电源驱动",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x0000001E",
+          "name": "KMODE_EXCEPTION_NOT_HANDLED"
+        },
+        {
+          "code": "0x0000003B",
+          "name": "SYSTEM_SERVICE_EXCEPTION"
+        },
+        {
+          "code": "0x0000007E",
+          "name": "SYSTEM_THREAD_EXCEPTION_NOT_HANDLED"
+        },
+        {
+          "code": "0x000000EA",
+          "name": "THREAD_STUCK_IN_DEVICE_DRIVER"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x00000133/"
+    },
+    {
+      "code": "0x00000139",
+      "name": "KERNEL_SECURITY_CHECK_FAILURE",
+      "category": "系统与内核",
+      "source_url": "https://www.3z9w.com/bsod/0x00000139/",
+      "keywords": [
+        "0x00000139",
+        "KERNEL_SECURITY_CHECK_FAILURE"
+      ],
+      "severity": "",
+      "title": "0x00000139 蓝屏代码：KERNEL_SECURITY_CHECK_FAILURE",
+      "summary": "内核安全校验失败。建议：内存与驱动一起查",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x00000020",
+          "name": "KERNEL_APC_PENDING_DURING_EXIT"
+        },
+        {
+          "code": "0x0000002B",
+          "name": "PANIC_STACK_SWITCH"
+        },
+        {
+          "code": "0x0000002E",
+          "name": "DATA_BUS_ERROR"
+        },
+        {
+          "code": "0x00000051",
+          "name": "REGISTRY_ERROR"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x00000139/"
+    },
+    {
+      "code": "0x0000013A",
+      "name": "KERNEL_MODE_HEAP_CORRUPTION",
+      "category": "系统与内核",
+      "source_url": "https://www.3z9w.com/bsod/0x0000013a/",
+      "keywords": [
+        "0x0000013A",
+        "KERNEL_MODE_HEAP_CORRUPTION"
+      ],
+      "severity": "",
+      "title": "0x0000013A 蓝屏代码：KERNEL_MODE_HEAP_CORRUPTION",
+      "summary": "内核堆被写坏。建议：关超频 / 查驱动",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x00000020",
+          "name": "KERNEL_APC_PENDING_DURING_EXIT"
+        },
+        {
+          "code": "0x0000002B",
+          "name": "PANIC_STACK_SWITCH"
+        },
+        {
+          "code": "0x0000002E",
+          "name": "DATA_BUS_ERROR"
+        },
+        {
+          "code": "0x00000051",
+          "name": "REGISTRY_ERROR"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x0000013a/"
+    },
+    {
+      "code": "0x00000154",
+      "name": "UNEXPECTED_STORE_EXCEPTION",
+      "category": "存储与文件系统",
+      "source_url": "https://www.3z9w.com/bsod/0x00000154/",
+      "keywords": [
+        "0x00000154",
+        "UNEXPECTED_STORE_EXCEPTION"
+      ],
+      "severity": "",
+      "title": "0x00000154 蓝屏代码：UNEXPECTED_STORE_EXCEPTION",
+      "summary": "存储栈出现意外异常。建议：SSD 固件 / 存储驱动",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x00000023",
+          "name": "FAT_FILE_SYSTEM"
+        },
+        {
+          "code": "0x00000024",
+          "name": "NTFS_FILE_SYSTEM"
+        },
+        {
+          "code": "0x0000007A",
+          "name": "KERNEL_DATA_INPAGE_ERROR"
+        },
+        {
+          "code": "0x0000007B",
+          "name": "INACCESSIBLE_BOOT_DEVICE"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x00000154/"
+    },
+    {
+      "code": "0x0000015F",
+      "name": "CONNECTED_STANDBY_WATCHDOG_TIMEOUT_LIVEDUMP",
+      "category": "电源 · USB · 网络",
+      "source_url": "https://www.3z9w.com/bsod/0x0000015f/",
+      "keywords": [
+        "0x0000015F",
+        "CONNECTED_STANDBY_WATCHDOG_TIMEOUT_LIVEDUMP"
+      ],
+      "severity": "",
+      "title": "0x0000015F 蓝屏代码：CONNECTED_STANDBY_WATCHDOG_TIMEOUT_LIVEDUMP",
+      "summary": "现代待机超时。建议：网卡 / 显卡驱动",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x0000009F",
+          "name": "DRIVER_POWER_STATE_FAILURE"
+        },
+        {
+          "code": "0x000000A0",
+          "name": "INTERNAL_POWER_ERROR"
+        },
+        {
+          "code": "0x000000FE",
+          "name": "BUGCODE_USB_DRIVER"
+        },
+        {
+          "code": "0x000001A5",
+          "name": "USB_DRIPS_BLOCKER_SURPRISE_REMOVAL_LIVEDUMP"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x0000015f/"
+    },
+    {
+      "code": "0x0000018B",
+      "name": "SECURE_KERNEL_ERROR",
+      "category": "系统与内核",
+      "source_url": "https://www.3z9w.com/bsod/0x0000018b/",
+      "keywords": [
+        "0x0000018B",
+        "SECURE_KERNEL_ERROR"
+      ],
+      "severity": "",
+      "title": "0x0000018B 蓝屏代码：SECURE_KERNEL_ERROR",
+      "summary": "安全内核(VBS)检测到错误。建议：关 VBS / 更新驱动",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x00000020",
+          "name": "KERNEL_APC_PENDING_DURING_EXIT"
+        },
+        {
+          "code": "0x0000002B",
+          "name": "PANIC_STACK_SWITCH"
+        },
+        {
+          "code": "0x0000002E",
+          "name": "DATA_BUS_ERROR"
+        },
+        {
+          "code": "0x00000051",
+          "name": "REGISTRY_ERROR"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x0000018b/"
+    },
+    {
+      "code": "0x000001A5",
+      "name": "USB_DRIPS_BLOCKER_SURPRISE_REMOVAL_LIVEDUMP",
+      "category": "电源 · USB · 网络",
+      "source_url": "https://www.3z9w.com/bsod/0x000001a5/",
+      "keywords": [
+        "0x000001A5",
+        "USB_DRIPS_BLOCKER_SURPRISE_REMOVAL_LIVEDUMP"
+      ],
+      "severity": "",
+      "title": "0x000001A5 蓝屏代码：USB_DRIPS_BLOCKER_SURPRISE_REMOVAL_LIVEDUMP",
+      "summary": "阻止休眠的 USB 设备被拔出。建议：更新 USB / 芯片组驱动",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x0000009F",
+          "name": "DRIVER_POWER_STATE_FAILURE"
+        },
+        {
+          "code": "0x000000A0",
+          "name": "INTERNAL_POWER_ERROR"
+        },
+        {
+          "code": "0x000000FE",
+          "name": "BUGCODE_USB_DRIVER"
+        },
+        {
+          "code": "0x0000015F",
+          "name": "CONNECTED_STANDBY_WATCHDOG_TIMEOUT_LIVEDUMP"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x000001a5/"
+    },
+    {
+      "code": "0x000001A8",
+      "name": "VIDEO_DXGKRNL_BLACK_SCREEN_LIVEDUMP",
+      "category": "显卡与显示",
+      "source_url": "https://www.3z9w.com/bsod/0x000001a8/",
+      "keywords": [
+        "0x000001A8",
+        "VIDEO_DXGKRNL_BLACK_SCREEN_LIVEDUMP"
+      ],
+      "severity": "",
+      "title": "0x000001A8 蓝屏代码：VIDEO_DXGKRNL_BLACK_SCREEN_LIVEDUMP",
+      "summary": "黑屏瞬间抓的实时转储。建议：驱动 / 线材 / 显示器",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x0000010E",
+          "name": "VIDEO_MEMORY_MANAGEMENT_INTERNAL"
+        },
+        {
+          "code": "0x00000113",
+          "name": "VIDEO_DXGKRNL_FATAL_ERROR"
+        },
+        {
+          "code": "0x00000116",
+          "name": "VIDEO_TDR_FAILURE"
+        },
+        {
+          "code": "0x00000117",
+          "name": "VIDEO_TDR_TIMEOUT_DETECTED"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x000001a8/"
+    },
+    {
+      "code": "0x000001AD",
+      "name": "VIDEO_MINIPORT_BLACK_SCREEN_LIVEDUMP",
+      "category": "显卡与显示",
+      "source_url": "https://www.3z9w.com/bsod/0x000001ad/",
+      "keywords": [
+        "0x000001AD",
+        "VIDEO_MINIPORT_BLACK_SCREEN_LIVEDUMP"
+      ],
+      "severity": "",
+      "title": "0x000001AD 蓝屏代码：VIDEO_MINIPORT_BLACK_SCREEN_LIVEDUMP",
+      "summary": "显示微型端口黑屏转储。建议：驱动 / 扩展坞",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x0000010E",
+          "name": "VIDEO_MEMORY_MANAGEMENT_INTERNAL"
+        },
+        {
+          "code": "0x00000113",
+          "name": "VIDEO_DXGKRNL_FATAL_ERROR"
+        },
+        {
+          "code": "0x00000116",
+          "name": "VIDEO_TDR_FAILURE"
+        },
+        {
+          "code": "0x00000117",
+          "name": "VIDEO_TDR_TIMEOUT_DETECTED"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x000001ad/"
+    },
+    {
+      "code": "0x000001B0",
+      "name": "VIDEO_MINIPORT_FAILED_LIVEDUMP",
+      "category": "显卡与显示",
+      "source_url": "https://www.3z9w.com/bsod/0x000001b0/",
+      "keywords": [
+        "0x000001B0",
+        "VIDEO_MINIPORT_FAILED_LIVEDUMP"
+      ],
+      "severity": "",
+      "title": "0x000001B0 蓝屏代码：VIDEO_MINIPORT_FAILED_LIVEDUMP",
+      "summary": "显示微型端口失败。建议：驱动 / 外接屏 / 扩展坞",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x0000010E",
+          "name": "VIDEO_MEMORY_MANAGEMENT_INTERNAL"
+        },
+        {
+          "code": "0x00000113",
+          "name": "VIDEO_DXGKRNL_FATAL_ERROR"
+        },
+        {
+          "code": "0x00000116",
+          "name": "VIDEO_TDR_FAILURE"
+        },
+        {
+          "code": "0x00000117",
+          "name": "VIDEO_TDR_TIMEOUT_DETECTED"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x000001b0/"
+    },
+    {
+      "code": "0x000001C7",
+      "name": "STORE_DATA_STRUCTURE_CORRUPTION",
+      "category": "存储与文件系统",
+      "source_url": "https://www.3z9w.com/bsod/0x000001c7/",
+      "keywords": [
+        "0x000001C7",
+        "STORE_DATA_STRUCTURE_CORRUPTION"
+      ],
+      "severity": "",
+      "title": "0x000001C7 蓝屏代码：STORE_DATA_STRUCTURE_CORRUPTION",
+      "summary": "存储数据结构损坏。建议：查 SSD 与存储驱动",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x00000023",
+          "name": "FAT_FILE_SYSTEM"
+        },
+        {
+          "code": "0x00000024",
+          "name": "NTFS_FILE_SYSTEM"
+        },
+        {
+          "code": "0x0000007A",
+          "name": "KERNEL_DATA_INPAGE_ERROR"
+        },
+        {
+          "code": "0x0000007B",
+          "name": "INACCESSIBLE_BOOT_DEVICE"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x000001c7/"
+    },
+    {
+      "code": "0x000001D3",
+      "name": "WFP_INVALID_OPERATION",
+      "category": "电源 · USB · 网络",
+      "source_url": "https://www.3z9w.com/bsod/0x000001d3/",
+      "keywords": [
+        "0x000001D3",
+        "WFP_INVALID_OPERATION"
+      ],
+      "severity": "",
+      "title": "0x000001D3 蓝屏代码：WFP_INVALID_OPERATION",
+      "summary": "网络过滤平台出现非法操作。建议：防火墙 / VPN 驱动",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x0000009F",
+          "name": "DRIVER_POWER_STATE_FAILURE"
+        },
+        {
+          "code": "0x000000A0",
+          "name": "INTERNAL_POWER_ERROR"
+        },
+        {
+          "code": "0x000000FE",
+          "name": "BUGCODE_USB_DRIVER"
+        },
+        {
+          "code": "0x0000015F",
+          "name": "CONNECTED_STANDBY_WATCHDOG_TIMEOUT_LIVEDUMP"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0x000001d3/"
+    },
+    {
+      "code": "0xC0000218",
+      "name": "STATUS_CANNOT_LOAD_REGISTRY_FILE",
+      "category": "系统与内核",
+      "source_url": "https://www.3z9w.com/bsod/0xc0000218/",
+      "keywords": [
+        "0xC0000218",
+        "STATUS_CANNOT_LOAD_REGISTRY_FILE"
+      ],
+      "severity": "",
+      "title": "0xC0000218 蓝屏代码：STATUS_CANNOT_LOAD_REGISTRY_FILE",
+      "summary": "注册表配置单元加载失败。建议：硬盘 / 离线修复注册表",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x00000020",
+          "name": "KERNEL_APC_PENDING_DURING_EXIT"
+        },
+        {
+          "code": "0x0000002B",
+          "name": "PANIC_STACK_SWITCH"
+        },
+        {
+          "code": "0x0000002E",
+          "name": "DATA_BUS_ERROR"
+        },
+        {
+          "code": "0x00000051",
+          "name": "REGISTRY_ERROR"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0xc0000218/"
+    },
+    {
+      "code": "0xC000021A",
+      "name": "WINLOGON_FATAL_ERROR",
+      "category": "系统与内核",
+      "source_url": "https://www.3z9w.com/bsod/0xc000021a/",
+      "keywords": [
+        "0xC000021A",
+        "WINLOGON_FATAL_ERROR"
+      ],
+      "severity": "高 · 可能无法登录",
+      "title": "0xC000021A 蓝屏:登录进程失败,怎么修复",
+      "summary": "Winlogon 或 CSRSS 终止,系统在登录环节崩溃。常见于更新失败、系统文件被替换、硬盘错误。",
+      "quick_tips": [
+        "安全模式卸最近更新",
+        "sfc /scannow + DISM",
+        "系统还原或修复安装"
+      ],
+      "params": [
+        {
+          "name": "Param 1",
+          "desc": "终止状态码(如 0xC0000005)"
+        },
+        {
+          "name": "Param 2",
+          "desc": "保留,通常为 0"
+        },
+        {
+          "name": "Param 3",
+          "desc": "保留,通常为 0"
+        },
+        {
+          "name": "Param 4",
+          "desc": "保留,通常为 0"
+        }
+      ],
+      "causes": [
+        {
+          "title": "更新失败/回滚不完整",
+          "desc": "更新后第一次重启就 021A。",
+          "level": "高"
+        },
+        {
+          "title": "系统文件损坏",
+          "desc": "winlogon.exe、csrss.exe 被替换。",
+          "level": "高"
+        },
+        {
+          "title": "第三方软件改系统文件",
+          "desc": "主题、破解、优化工具。",
+          "level": "中"
+        },
+        {
+          "title": "硬盘/文件系统错误",
+          "desc": "关键文件读不出来。",
+          "level": "中"
+        }
+      ],
+      "steps": [
+        {
+          "title": "进安全模式",
+          "desc": "卸载最近更新、第三方主题/优化工具。"
+        },
+        {
+          "title": "修系统文件",
+          "desc": "sfc /scannow ,再 DISM /Online /Cleanup-Image /RestoreHealth 。"
+        },
+        {
+          "title": "系统还原",
+          "desc": "回到更新前的还原点。"
+        },
+        {
+          "title": "查磁盘",
+          "desc": "chkdsk C: /f /r ,看 SMART。"
+        },
+        {
+          "title": "修复安装",
+          "desc": "仍不行做修复安装,保留个人文件。"
+        }
+      ],
+      "warnings": [
+        "安全模式也进不去",
+        "没有还原点、怕丢数据",
+        "硬盘报错"
+      ],
+      "faqs": [
+        {
+          "q": "021A 和 0xC0000221 有什么区别?",
+          "a": "0221 是系统文件校验和不匹配,021A 是登录进程终止,常同时出现。"
+        },
+        {
+          "q": "一定要重装吗?",
+          "a": "不一定,先卸更新、修文件、还原;最后才修复安装。"
+        },
+        {
+          "q": "会丢数据吗?",
+          "a": "修复安装保留文件,但操作前仍建议备份。"
+        }
+      ],
+      "related": [
+        {
+          "code": "0x00000020",
+          "name": "KERNEL_APC_PENDING_DURING_EXIT"
+        },
+        {
+          "code": "0x0000002B",
+          "name": "PANIC_STACK_SWITCH"
+        },
+        {
+          "code": "0x0000002E",
+          "name": "DATA_BUS_ERROR"
+        },
+        {
+          "code": "0x00000051",
+          "name": "REGISTRY_ERROR"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0xc000021a/"
+    },
+    {
+      "code": "0xC0000221",
+      "name": "STATUS_IMAGE_CHECKSUM_MISMATCH",
+      "category": "系统与内核",
+      "source_url": "https://www.3z9w.com/bsod/0xc0000221/",
+      "keywords": [
+        "0xC0000221",
+        "STATUS_IMAGE_CHECKSUM_MISMATCH"
+      ],
+      "severity": "",
+      "title": "0xC0000221 蓝屏代码：STATUS_IMAGE_CHECKSUM_MISMATCH",
+      "summary": "系统文件校验和不匹配。建议：内存 / 硬盘 / 系统文件",
+      "quick_tips": [],
+      "params": [],
+      "causes": [],
+      "steps": [
+        {
+          "title": "先进安全模式",
+          "desc": "能进，偏驱动/软件；进不去，偏硬件或系统文件。"
+        },
+        {
+          "title": "回滚最近变更",
+          "desc": "最近装的驱动、系统更新、杀毒/优化软件，逐个卸载。"
+        },
+        {
+          "title": "测内存与硬盘",
+          "desc": "MemTest86 跑 4 轮；CrystalDiskInfo 看 05/C5。"
+        },
+        {
+          "title": "还不行就发我",
+          "desc": "把蓝屏截图或 dump 发我，先判断是硬件还是软件。"
+        }
+      ],
+      "warnings": [],
+      "faqs": [],
+      "related": [
+        {
+          "code": "0x00000020",
+          "name": "KERNEL_APC_PENDING_DURING_EXIT"
+        },
+        {
+          "code": "0x0000002B",
+          "name": "PANIC_STACK_SWITCH"
+        },
+        {
+          "code": "0x0000002E",
+          "name": "DATA_BUS_ERROR"
+        },
+        {
+          "code": "0x00000051",
+          "name": "REGISTRY_ERROR"
+        }
+      ],
+      "disclaimer": "说明：参数含义随 Windows 版本可能变化；排查前请先备份重要数据。内容由无名大叔整理， 参考 Microsoft Learn 与实机维修经验，仅供排查参考，不构成维修承诺。",
+      "detail_url": "https://www.3z9w.com/bsod/0xc0000221/"
+    }
+  ]
+}
