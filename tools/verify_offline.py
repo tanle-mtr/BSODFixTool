@@ -12,6 +12,17 @@ import json
 import sys
 from pathlib import Path
 
+def _force_utf8_stdout() -> None:
+    """CI 控制台默认是 cp1252，强制 UTF-8 输出，避免中文日志直接崩掉。"""
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(encoding="utf-8", errors="replace")
+        except (AttributeError, ValueError):
+            pass
+
+
+_force_utf8_stdout()
+
 RUNTIME_MODULES = [
     "main.py",
     "repair_engine.py",
